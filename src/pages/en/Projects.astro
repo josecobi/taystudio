@@ -1,0 +1,189 @@
+---
+import ReactIcon from "../../icons/ReactIcon.astro"
+import JavaScriptIcon from "../../icons/JavaScriptIcon.astro"
+import Link from "../../icons/Link.astro"
+import LinkButton from "../../components/LinkButton.astro"
+import GithubIcon from "../../icons/GithubIcon.astro"
+import NodeIcon from "../../icons/NodeIcon.astro"
+import ExpressIcon from "../../icons/ExpressIcon.astro"
+import HTMLIcon from "../../icons/HTMLIcon.astro"
+import CSSIcon from "../../icons/CSSIcon.astro"
+import MongoIcon from "../../icons/MongoIcon.astro"
+import BootstrapIcon from "../../icons/BootstrapIcon.astro"
+import FlaskIcon from "../../icons/FlaskIcon.astro"
+import PythonIcon from "../../icons/PythonIcon.astro"
+import YoutubeIcon from "../../icons/YoutubeIcon.astro"
+import SQLiteIcon from "../../icons/SQLiteIcon.astro"
+const TAGS = {
+   REACT: {
+    name: "React.js",
+    class: "bg-black text-white",
+    icon: ReactIcon,
+
+   },
+   JAVASCRIPT: {
+    name: "JavaScript.js",
+    class: "bg-black text-white",
+    icon: JavaScriptIcon,
+
+   },
+   NODEJS: {
+    name: "Node.js",
+    class: "bg-[#1c3a1b] text-white",
+    icon: NodeIcon,
+   },
+   EXPRESS: {
+    name: "Express.js",
+    class: "bg-white text-black",
+    icon: ExpressIcon,
+   },
+   MONGODB: {
+    name: "MongoDB",
+    class: "bg-[#009f43] text-white",
+    icon: MongoIcon,
+   },
+   BOOTSTRAP: {
+    name: "Bootstrap",
+    class: "bg-[#30075e] text-white",
+    icon: BootstrapIcon,
+   },
+   HTML: {
+    name: "HTML",
+    class: "bg-[#94361d] text-white",
+    icon: HTMLIcon,
+   },
+   CSS: {
+    name: "CSS",
+    class: "bg-[#032338] text-white",
+    icon: CSSIcon,
+   },
+   FLASK: {
+    name: "Flask",
+    class: "bg-black text-white",
+    icon: FlaskIcon,
+   },
+   PYTHON: {
+    name: "Python",
+    class: "bg-[#233e54] text-white",
+    icon: PythonIcon,
+   },
+   SQLITE: {
+    name: "SQLite",
+    class: "bg-[#003b57] text-white",
+    icon: SQLiteIcon,
+   }   
+}
+const PROJECTS = [
+    {
+        title: "Lexaviva",
+        description: "Spanish vocab app with a dynamic and responsive interface, and personalized learning options for efficient Spanish vocabulary acquisition.",
+        youtube:"",
+        link: "https://lexaviva.up.railway.app/",
+        github:"https://github.com/josecobi/lexaviva-frontend",
+        image:"/lexaviva-capture.webp",
+        tags:[TAGS.REACT, TAGS.JAVASCRIPT, TAGS.NODEJS, TAGS.EXPRESS, TAGS.HTML, TAGS.CSS, TAGS.MONGODB, TAGS.BOOTSTRAP ]
+    },
+    {
+        title: "URLSnap",
+        description: "An URL shortener web application that enables users to shorten long URLs and track the history of their shortened links. This tool is ideal for companies and developers looking to streamline their link management and optimize their projects.",
+        youtube:"",
+        link: "",
+        github:"https://github.com/josecobi/urlShortener-with-custom-RESTful-API",
+        image:"/url-shortener-capture.webp",
+        tags:[TAGS.JAVASCRIPT, TAGS.NODEJS, TAGS.EXPRESS, TAGS.HTML, TAGS.CSS, TAGS.BOOTSTRAP ] 
+    },
+    {
+        title: "SpanishHub",
+        description: "A comprehensive web application designed to enhance users' Spanish language proficiency through interactive drag-and-drop activities focused on verb conjugations. Users can practice and improve their skills while receiving instant feedback and scoring.",
+        youtube:"https://www.youtube.com/watch?v=WeD9Q9Uob10",
+        link: "",
+        github:"https://github.com/josecobi/SpanishHub",
+        image:"/spanishhub-capture.webp",
+        tags:[TAGS.JAVASCRIPT, TAGS.PYTHON, TAGS.FLASK, TAGS.SQLITE, TAGS.HTML, TAGS.CSS, TAGS.BOOTSTRAP ] 
+    },
+    // {
+    //     title: "Lexaviva",
+    //     description: "ADD DESCRIPTION",
+    //     link: "#",
+    //     github:"#",
+    //     image:"https://via.placeholder.com/300x200",
+    //     tags:['HTML', 'CSS', 'JavaScript', 'React', "Express", 'MongoDB', 'Mongoose', 'Redux']
+    // },
+]
+---
+<div class="flex flex-col gap-y-16">
+    {
+      PROJECTS.map(({ image, title, description, tags, link, github, youtube }) => (
+      <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+    <div class="w-full md:w-1/2">
+      <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+        <img alt="Projects screenshot" class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"  src={image} />
+      </div>
+    </div>
+  
+    <div class="w-full md:w-1/2 md:max-w-lg">
+      <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+        {title}
+      </h3>
+      <div class="flex flex-wrap mt-2">
+        <ul class="flex flex-wrap flex-row mb-2 gap-x-2 gap-y-2">
+            {tags.map((tag) => (
+              <li>
+                <span
+                  class={`flex gap-x-2 rounded-full border-[0.5px] dark:border-[0.2px] text-xs ${tag.class} py-1 px-2 `}>
+                  <tag.icon class="size-4" />
+                  {tag.name}
+                </span>
+              </li>
+            ))}
+          </ul>
+  
+        <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
+        <footer class="flex items-end justify-start mt-4 gap-x-4">
+            {github && (
+              <LinkButton href={github}>
+                <GithubIcon class="size-6" />
+                Code
+                
+              </LinkButton>
+            )}
+            {link && (
+              <LinkButton href={link}>
+                <Link class="size-4" />
+                Preview
+              </LinkButton>
+            )}
+            {youtube && (
+              <LinkButton href={youtube}>
+                <YoutubeIcon class="size-4" />
+                Highlight
+              </LinkButton>
+            )}
+          </footer>
+      </div>
+    </div>
+  </article>
+      ))
+    }
+  </div>
+<!-- {
+    PROJECTS.map(({title, description, tags, image, link, github}) => (
+        <article>
+            <h3 class="text-2xl font-semibold text-yellow-200 mb-2">{title}</h3>
+            <img class="rounded shadow-2xl shadow-white/10 mb-2" src={image} alt="Project's screenshot" />
+            <p class="text-lg mb-4 text-pretty">{description}
+            </p>
+            <ul class="flex gap-x-2 flex-row mb-2">
+                {tags.map((tag) => (
+                    <li>
+                        <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}>
+                            <tag.icon class="size-4"/> {tag.name}
+                        </span>
+                    </li>
+                ))}
+            </ul>
+
+
+        </article>
+    ))
+} -->

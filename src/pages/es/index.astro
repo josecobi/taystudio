@@ -1,0 +1,64 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import LinkedInIcon from '../../icons/LinkedInIcon.astro';
+import GithubIcon from '../../icons/GithubIcon.astro';
+import MailIcon from '../../icons/MailIcon.astro';
+import SocialPill from '../../components/SocialPill.astro';
+import SectionContainer from "../../components/SectionContainer.astro";
+import BriefcaseIcon from "../../icons/BriefcaseIcon.astro";
+import CodeIcon from "../../icons/CodeIcon.astro";
+import Projects from "./../es/Projects.astro"
+import AboutIcon from "../../icons/AboutIcon.astro"
+import About from "./../es/About.astro"
+import { getLangFromUrl } from '../../i18n/utils';
+import Hero from './Hero.astro';
+import Contact from './Contact.astro';
+import ActionBtn from '../../components/ActionBtn.astro';
+import Blog from './Blog.astro';
+import PricingSection from './PricingSection.astro';
+const lang = getLangFromUrl(Astro.url);
+
+
+---
+
+<Layout 
+language="es"
+title="Porfolio de Jose - Ingeniero de Software Full-Stack. 5+ años de Experiencia en el campo tecnológico"
+description="Explora el portafolio de Jose, donde se muestra su experiencia en desarrollo full-stack, incluyendo aplicaciones web. Contrata a Jose para tu próximo proyecto y aprovecha sus habilidades en JavaScript, React, Node.js, y más.">
+<main class="px-0 mt-10">
+
+	<Hero />
+	<div class="px-4">
+		<SectionContainer id="portfolio">
+			<h2 class="text-3xl font-semibold mb-5 gap-x-3 items-center flex">
+				<CodeIcon class="size-7"/>
+				Portfolio</h2>
+			<Projects />
+		</SectionContainer>
+		</SectionContainer>
+		<SectionContainer id="about">
+			<h2 class="text-3xl font-semibold mb-5 gap-x-3 items-center flex">
+				<AboutIcon class="size-7"/>
+				About me</h2>
+			<About />
+		</SectionContainer>
+		<SectionContainer>
+			<PricingSection />
+		</SectionContainer>
+		<SectionContainer id="contact">
+			<h2 class="text-3xl font-semibold mb-5 gap-x-3 items-center flex">
+				<AboutIcon class="size-7"/>
+				Let's get started</h2>
+			<Contact />
+		</SectionContainer>
+		<SectionContainer id="blog">
+			<h2 class="text-3xl font-semibold mb-5 gap-x-3 items-center flex">
+				<AboutIcon class="size-7"/>
+				Tips for your website</h2>
+			<Blog />
+
+		</SectionContainer>
+	</div>
+</main>
+</Layout>
+

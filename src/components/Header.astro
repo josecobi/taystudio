@@ -1,0 +1,102 @@
+---
+import ThemeToggle from './ThemeToggle.astro'
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import LanguagePicker from '../components/LanguagePicker.astro';
+
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<header class="bg-gray-900 text-white fixed top-0 z-10 w-full ">
+    <nav class="mx-auto flex max-w-7xl items-center px-6 py-2 lg:px-8" aria-label="Global">
+      <div class="flex">
+        <a href="#" class="-m-1.5 p-1.5">
+          <span class="sr-only">CobiDev</span>
+          <img class="h-11 w-auto" src="/CobiDevLogo.svg" alt="logo-cobidev">
+        </a>
+      </div>
+      <div class="flex lg:hidden ml-auto">
+        <button id="open-menu-button" type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-400">
+          <span class="sr-only">Open main menu</span>
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+      <div class="hidden lg:flex lg:gap-x-12 mx-auto">
+        <a href=`/${lang}/#` class="hover:underline hover:bg-slate-600 p-2 rounded focus:outline-none focus:ring-4 focus:ring-white">{t('nav.home')}</a>
+        <a href=`/${lang}/#portfolio` class="hover:underline hover:bg-slate-600 p-2 rounded focus:outline-none focus:ring-4 focus:ring-white">{t('nav.portfolio')}</a>
+        <a href=`/${lang}/#about` class="hover:underline hover:bg-slate-600 p-2 rounded focus:outline-none focus:ring-4 focus:ring-white">{t('nav.about')}</a> 
+        <a href=`/${lang}/#contact` class="hover:underline hover:bg-slate-600 p-2 rounded focus:outline-none focus:ring-4 focus:ring-white">{t('nav.contact')}</a> 
+        <div class="hidden lg:flex items-center space-x-4 ml-auto">
+          <ThemeToggle />
+          <LanguagePicker />
+          <!--Language button -->
+          
+          </div>     
+   
+    </nav>
+    <!-- Mobile menu, show/hide based on menu open state. -->
+    <div id="mobile-menu" class="hidden lg:hidden" role="dialog" aria-modal="true">
+      <!-- Background backdrop, show/hide based on slide-over state. -->
+      <div class="fixed inset-0 z-10"></div>
+      <div  class="fixed inset-y-0 right-0 z-10 w-60 overflow-y-auto bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
+        <div class="flex items-center justify-between">
+          <a href="#" class="-m-1.5 p-1.5">
+            <span class="sr-only">CobiDev</span>
+          </a>
+          <button id="close-menu-button" type="button" class="-m-2.5 rounded-md p-2.5 text-gray-400">
+            <span class="sr-only">Close menu</span>
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div class="mt-6 flow-root">
+          <div class="-my-6 divide-y divide-gray-500/25">
+            <div class=" py-6  flex flex-col align-end">
+              <a href=`/${lang}/#` class="hover:underline hover:bg-slate-600 p-2 rounded focus:outline-none focus:ring-4 focus:ring-white">Home</a>
+              <a href=`/${lang}/#portfolio` class="hover:underline hover:bg-slate-600 p-2 rounded focus:outline-none focus:ring-4 focus:ring-white">Portfolio</a>
+              <a href=`/${lang}/#about` class="hover:underline hover:bg-slate-600 p-2 rounded focus:outline-none focus:ring-4 focus:ring-white">About</a> 
+                <ThemeToggle />
+                <!--Language button -->
+          <button id="dropdownDefaultButtonMobile" data-dropdown-toggle="dropdownMobile" class="language-btn text-white hover:underline hover:bg-slate-600 p-2 rounded focus:outline-none focus:ring-4 focus:ring-white inline-flex items-center text-sm" type="button">
+            Language
+            <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+            </svg>
+        </button>
+        <!-- Dropdown menu -->
+        <div id="dropdownMobile" data-dropdown-toggle="dropdownMobileId" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButtonMobile">
+              <li>
+                <a href="/" class="language-btn-english block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">English</a>
+              </li>
+              <li>
+                <a href="/es" class="language-btn-spanish block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Español</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+            </div>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <script>
+    // Mobile menu
+    document.getElementById('open-menu-button').addEventListener('click', function () {
+      document.getElementById('mobile-menu').classList.remove('hidden');
+    });
+  
+    document.getElementById('close-menu-button').addEventListener('click', function () {
+      document.getElementById('mobile-menu').classList.add('hidden');
+    });
+  
+    
+  </script>
+  

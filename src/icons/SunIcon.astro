@@ -1,0 +1,23 @@
+<svg
+    {...Astro.props}
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    stroke-width="2"
+    stroke="currentColor"
+    fill="none"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+>
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"/>
+  <!-- Add the missing left ray -->
+  <path d="M4 12H3"/> <!-- This line was missing -->
+  <path d="M12 3v1"/>
+  <path d="M20 12h1"/>
+  <path d="M12 20v1"/>
+  <path d="M4.6 4.6l.7 .7"/>
+  <path d="M19.4 4.6l-.7 .7"/>
+  <path d="M19.4 19.4l.7 .7"/>
+  <path d="M4.6 19.4l-.7 .7"/>
+</svg>
