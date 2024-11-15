@@ -1,0 +1,38 @@
+---
+import Layout from "../../layouts/Layout.astro"
+import { getLangFromUrl } from '../../i18n/utils';
+import SectionContainer from "../../components/SectionContainer.astro";
+
+const lang = getLangFromUrl(Astro.url);
+
+---
+<Layout  
+title = "About"
+description = "Learn more about Cobitek" 
+language = {lang}>
+  <main class="mt-20">
+      <SectionContainer>
+        
+        <div class="bg-white">
+            <div class="mx-auto max-w-6xl px-6 lg:px-8">
+                <h2 class="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl text-center">Get a quote</h2>
+                <p class="mt-6 text-lg leading-8 text-gray-600">If you can't find exactly what you're looking for in our service packages, no worries! I'm here to help. Use the form below to provide us with some details about your project or specific needs. We'll get back to you with a personalized quote tailored to your requirements.</p>
+                
+                <!-- Form Embed Code -->
+                <div class="py-2 mt-6">
+                    <script defer>
+                        hbspt.forms.create({
+                            portalId: "47781443",
+                            formId: "852558e8-ea7f-4115-a7ee-29aa773ebc54",
+                        });
+                    </script>
+                </div>
+                <!-- End Form Embed Code -->
+
+     
+            </div>
+        </div>
+
+</SectionContainer>
+</main>
+</Layout>

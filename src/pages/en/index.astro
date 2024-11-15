@@ -16,51 +16,43 @@ import Contact from './Contact.astro';
 import ActionBtn from '../../components/ActionBtn.astro';
 import Blog from './Blog.astro';
 import PricingSection from './PricingSection.astro';
+import ModalPack from './ModalPack.astro';
 const lang = getLangFromUrl(Astro.url);
 
 ---
 
 <Layout 
 language={lang}
-title="Jose's Portfolio - Full-Stack Software Engineer. 5+ Experience in the tech field."
-description="Explore Jose's portfolio showcasing his expertise in full-stack development, including web applications. Hire Jose for your next project and leverage his skills in JavaScript, React, Node.js, and more.">
-
-
+title="CobiTek - Creating Unique Websites"
+description="Transform your business with a unique website.">
 
 	<main class="px-0 mt-10">
 
 		<Hero />
-		<div class="px-4">
+		
 			<SectionContainer id="portfolio">
-				<h2 class="text-3xl font-semibold mb-5 gap-x-3 items-center flex">
-					<CodeIcon class="size-7"/>
-					Portfolio</h2>
 				<Projects />
 			</SectionContainer>
-			</SectionContainer>
-			<SectionContainer id="about">
-				<h2 class="text-3xl font-semibold mb-5 gap-x-3 items-center flex">
-					<AboutIcon class="size-7"/>
-					About me</h2>
-				<About />
-			</SectionContainer>
-			<SectionContainer>
+		
+			<SectionContainer id="pricing">
 				<PricingSection />
+				<ModalPack />
 			</SectionContainer>
-			<SectionContainer id="contact">
-				<h2 class="text-3xl font-semibold mb-5 gap-x-3 items-center flex">
-					<AboutIcon class="size-7"/>
-					Let's get started</h2>
-				<Contact />
-			</SectionContainer>
-			<SectionContainer id="blog">
-				<h2 class="text-3xl font-semibold mb-5 gap-x-3 items-center flex">
-					<AboutIcon class="size-7"/>
-					Tips for your website</h2>
-				<Blog />
 
+			<SectionContainer id="contact">	
+				<Contact id="contact"/>
 			</SectionContainer>
-		</div>
+
+			<!-- <SectionContainer id="about">
+				<p class="mt-2 mb-5 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl text-center">About me</p>
+				<About />
+			</SectionContainer> -->
+
+				<!-- <Blog id="blog"/> -->
+
+	
 	</main>
+	<script src="../../lib/openModal.js"></script>
+
 </Layout>
 

@@ -1,14 +1,64 @@
-<article class="flex flex-col items-start justify-center gap-8 text-gray-700 dark:text-gray-300 md:flex-row">
-    <div class="[&>p]:mb-4 [&>p>strong]:text-yellow-500 dark:[&>p>strong]:text-yellow-100 [&>p>strong]:font-normal [&>p>strong]:font-mono text-pretty order-2 md:order-1">
-      <p>I'm Jose Lopez Cobano, software engineer with a diverse professional background, Certified in Full Stack Software Engineering from Per Scholas (sponsored by Google and Comcast) and CS50x Introduction to Computer Science from Harvard/edX, with the distinction of graduating as Valedictorian at Per Scholas. Strong expertise in JavaScript, Python, SQL, and the MERN stack.</p>
-      <p>Professional experience and projects demonstrate the ability to design and develop efficient, scalable, and user-centric solutions. Notable work includes comprehensive web applications designed to enhance users' Spanish language proficiency through interactive verb conjugation activities, and vocabulary flashcards, highlighting expertise in creating engaging, responsive, and effective web interfaces.</p>
+---
+import Layout from "../../layouts/Layout.astro"
+import { getLangFromUrl } from '../../i18n/utils';
+import SectionContainer from "../../components/SectionContainer.astro";
 
-      <p> International experience across Spain, The Netherlands, and the USA, combined with bilingual proficiency in English and Spanish, facilitates collaboration in diverse environments.</p>
+const lang = getLangFromUrl(Astro.url);
 
-      <p>Always ready to tackle new challenges and drive projects to success.</p>
-      <p>Explore the <a href="#projects">projects</a> and reach out to discuss exciting collaboration opportunities.</p>
-    </div>
-    <img width="50" height="50" alt="photo of Jose Lopez" class="order-1 float-left object-cover w-40 h-full p-1 md:order-2 lg:p-2 lg:w-55 rounded-full shadow-inset shadow-[#5973ff] dark:shadow-[#61feeb]" style="object-position: 50% 50%; margin-left: 0.2rem;" src="/foto-intro.png" />
-  </article>
+---
+<Layout  
+title = "About"
+description = "Learn more about Cobitek" 
+language = {lang}>
+  <main>
+      <SectionContainer>
+        <div class="overflow-hidden bg-white py-24 sm:py-10">
+          <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+            <div class="max-w-4xl">
+              <p class="text-base/7 font-semibold text-indigo-600">About</p>
+              <h1 class="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">On a mission to empower small businesses</h1>
+              <p class="mt-6 text-balance text-xl/8 text-gray-700">Committed to helping small businesses flourish by bridging the gap between vision and technology.</p>
+
+            </div>
+            <section class="mt-20 grid grid-cols-1 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-16">
+              <div class="lg:pr-8">
+                <h2 class="text-pretty text-2xl font-semibold tracking-tight text-gray-900">My mission</h2>
+                <p class="mt-6 text-base/7 text-gray-600">I recognize the unique challenges faced by non-tech-savvy business owners, especially when it comes to establishing a strong digital presence. My mission is to simplify this journey, making the digital transformation accessible, seamless, and empowering, transforming brands with strategic rebranding, creating modern website, and optimizing existing websites.</p>
+                <p class="mt-8 text-base/7 text-gray-600">By crafting an engaging, professional online presence, I enable businesses to connect with their target audiences, improve visibility, and achieve their goals. I take care of the technical details, allowing our clients to focus on what they do best—running their business.</p>
+
+                <p class="mt-8 text-base/7 text-gray-600">I've partnered with clients from a wider variety of industries like Education, Property Services, Construction, Food Industry, and more to build online presences that drive tangible results.</p>
+              </div>
+              <div class="pt-16 lg:row-span-2 lg:-mr-16 xl:mr-auto px-6">
+                <div class="-mx-8 grid grid-cols-2 gap-4 sm:-mx-16 sm:grid-cols-4 lg:mx-0 lg:grid-cols-2 lg:gap-4 xl:gap-8">
+                  <div class="aspect-square overflow-hidden rounded-xl shadow-xl outline-1 -outline-offset-1 outline-black/10">
+                    <img alt="" src="https://images.unsplash.com/photo-1590650516494-0c8e4a4dd67e?&auto=format&fit=crop&crop=center&w=560&h=560&q=90" class="block size-full object-cover">
+                  </div>
+                  <div class="-mt-8 aspect-square overflow-hidden rounded-xl shadow-xl outline-1 -outline-offset-1 outline-black/10 lg:-mt-40">
+                    <img alt="" src="https://images.unsplash.com/photo-1557804506-669a67965ba0?&auto=format&fit=crop&crop=left&w=560&h=560&q=90" class="block size-full object-cover">
+                  </div>
+                  <div class="aspect-square overflow-hidden rounded-xl shadow-xl outline-1 -outline-offset-1 outline-black/10">
+                    <img alt="" src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?&auto=format&fit=crop&crop=left&w=560&h=560&q=90" class="block size-full object-cover">
+                  </div>
+                  <div class="-mt-8 aspect-square overflow-hidden rounded-xl shadow-xl outline-1 -outline-offset-1 outline-black/10 lg:-mt-40">
+                    <img alt="" src="https://images.unsplash.com/photo-1598257006458-087169a1f08d?&auto=format&fit=crop&crop=center&w=560&h=560&q=90" class="block size-full object-cover">
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+        <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+                <h2 class="text-pretty text-2xl font-semibold tracking-tight text-gray-900">About me</h2>
+                      <img width="50" height="50" alt="photo of Jose Lopez" class="order-1 float-left object-cover w-20 h-full p-1 md:order-2 lg:p-2 lg:w-55 sm: rounded-full shadow-inset shadow-[#5973ff] dark:shadow-[#61feeb] mr-3 mt-6" style="object-position: 50% 50%; margin-left: 0.5rem;" src="/foto-intro.png" />
+
+                      <p class="mt-8 text-base/7 text-gray-600">Hi, I'm Jose, the Founder of Cobitek. A Software Engineer based in Baltimore, MD, USA. I'm passionate about transforming ideas into interactive, high-performing web experiences. Specializing in responsive design, I create websites that don't just look great but are optimized for seamless functionality. With over 5 years of experience developing websites and 11+ years in the tech industry, my goal is to make the digital world accessible to all.</p>
+
+                      <p class="mt-8 text-base/7 text-gray-600">Having lived and worked in Spain, The Netherlands, and the USA, I bring a global perspective and am fluent in both English and Spanish, which helps me collaborate effectively across cultures and projects. When I'm not coding, you might find me enjoying the outdoors or playing the guitar—a few passions that keep my creativity and energy flowing.</p>
+        </div>    
+              </div>
+          </article>
+      </SectionContainer>
+    </main>
+  </Layout>
   
   

@@ -8,7 +8,6 @@ export default defineConfig({
   integrations: [tailwind()],
   i18n: {
     defaultLocale: 'en',
-    locales: ['es', 'en'],
-   
+    locales: ['es', 'en'],   
   }
 });

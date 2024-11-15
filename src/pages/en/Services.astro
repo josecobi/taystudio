@@ -1,7 +1,11 @@
 ---
 import ServiceItem from '../../components/ServiceItem.astro'
 import PhoneIcon from '../../icons/PhoneIcon.astro'
-ServiceItem
+import UxUiIcon from '../../icons/UxUiIcon.astro'
+import SeoIcon from '../../icons/SeoIcon.astro'
+import BrandingIcon from '../../icons/BrandingIcon.astro'
+import HostingIcon from '../../icons/HostingIcon.astro'
+
 const SERVICES = [
 {
     title: 'Design',
@@ -11,29 +15,29 @@ const SERVICES = [
 {
     title: 'UX/UI',
     description: 'Ensuring your customers and visitors have a consistent experience across all devices and platforms.',
-    icon: PhoneIcon,
+    icon: UxUiIcon,
 },
 {
     title: 'Branding',
     description: "I'll collaborate with you to develop a branding strategy, or if you already have one, I'll help enhance its visibility.",
-    icon: PhoneIcon,
+    icon: BrandingIcon,
 },
 {
     title: 'SEO',
     description: "Missing out on customers who can't find you could be costing you significantly. I'll help ensure you're visible in the right places at the right times.",
-    icon: PhoneIcon,
+    icon: SeoIcon,
 },
 {
     title: 'Hosting / Maintenance',
-    description: "Missing out on customers who can't find you could be costing you significantly. I'll help ensure you're visible in the right places at the right times.",
-    icon: PhoneIcon,
+    description: "Ensure your website stays online, secure, and up-to-date with my Hosting Management & Maintenance service. I handle all technical aspects, including updates, backups, and performance monitoring, so you can focus on growing your business worry-free.",
+    icon: HostingIcon,
 },
 
 ]
 ---
 <div class="mt-16 sm:mt-20">
-    <h2 class="text-3xl text-white font-semibold mb-5 gap-x-3 items-center flex">Services</h2>
-    <div class="mx-auto grid max-w-2xl grid-cols-1 gap-6  lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
+    <h2 class="text-3xl text-white font-semibold mb-5 gap-x-3">Services</h2>
+    <div class="mx-auto grid max-w-2xl grid-cols-1 gap-6  lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8 text-left">
         {SERVICES.map(({ title, description, icon }) => (
         <ServiceItem title={ title } description={description} icon={icon} />
         ))}

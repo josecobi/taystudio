@@ -1,13 +1,12 @@
-<!-- <span class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300"><slot /></span> -->
 ---
 const { href } = Astro.props
 ---
-<a class="flex items-center" href={href}>
-    <span class="relative inline-flex overflow-hidden rounded-full p-[1px]">
+<a class="items-center" href={href}>
+    <span class="relative inline-flex overflow-hidden rounded-full p-[3px]">
       <span
         class="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#5973ff_0%,#1e2754_50%,#5973ff_100%)] dark:bg-[conic-gradient(from_90deg_at_50%_50%,#61feeb_0%,#21554E_50%,#61feeb_100%)]"
       ></span>
-      <div class="inline-flex items-center justify-center w-full px-3 py-1 text-sm text-[#5973ff] bg-[#cdd5ff] rounded-full cursor-pointer dark:bg-gray-800 dark:text-white/80 backdrop-blur-3xl whitespace-nowrap">
+      <div class="inline-flex items-center justify-center w-full px-3 py-3 text-sm text-[#5973ff] bg-[#cdd5ff] rounded-full cursor-pointer dark:bg-gray-800 dark:text-white/80 backdrop-blur-3xl whitespace-nowrap">
         <slot />
       </div>
     </span>
