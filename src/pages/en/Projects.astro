@@ -14,6 +14,9 @@ import FlaskIcon from "../../icons/FlaskIcon.astro"
 import PythonIcon from "../../icons/PythonIcon.astro"
 import YoutubeIcon from "../../icons/YoutubeIcon.astro"
 import SQLiteIcon from "../../icons/SQLiteIcon.astro"
+import AstroIcon from "../../icons/AstroIcon.astro"
+import Tailwind from "../../icons/TailwindIcon.astro"
+
 const TAGS = {
    REACT: {
     name: "React.js",
@@ -71,6 +74,16 @@ const TAGS = {
     name: "SQLite",
     class: "bg-[#003b57] text-white",
     icon: SQLiteIcon,
+   },
+   ASTRO: {
+    name: "Astro",
+    class: "bg-black text-white",
+    icon: AstroIcon,
+   },
+   TAILWIND: {
+    name: "Tailwind",
+    class: "bg-black text-white",
+    icon: Tailwind,
    }   
 }
 const PROJECTS = [
@@ -100,6 +113,14 @@ const PROJECTS = [
         github:"https://github.com/josecobi/SpanishHub",
         image:"/spanishhub-capture.webp",
         tags:[TAGS.JAVASCRIPT, TAGS.PYTHON, TAGS.FLASK, TAGS.SQLITE, TAGS.HTML, TAGS.CSS, TAGS.BOOTSTRAP ] 
+    },
+    {
+        title: "Pokemon",
+        description: "An interactive web app built with Astro and Solid.js, allowing users to explore different Pokémon with titles, images, and audio. Featuring a favorites system powered by local storage, users can easily add or remove their favorite Pokémon. The app includes pagination and ViewTransitions for a seamless user experience, with a modern design styled using TailwindCSS.",
+        link: "",
+        github:"https://github.com/josecobi/pokemon-static-astro",
+        image:"/pokemon.webp",
+        tags:[TAGS.JAVASCRIPT, TAGS.ASTRO, TAGS.HTML, TAGS.CSS, TAGS.TAILWIND ] 
     },
     // {
     //     title: "Lexaviva",
