@@ -1,3 +1,15 @@
 @import '@fontsource/roboto-slab';
 @import '@fontsource/rye';
-@import '@fontsource/power-passion';
+@import '@fontsource/smokum';
+
+
+:root {
+    --color-brand-primary: "#C4A76B", /* Muted Gold */
+    --color-brand-primary-dark: "#7A5A31", /* Darker Gold/Bronze */
+    --color-brand-secondary: "#E0C3A0", /* Light Beige (Button BG) */
+    --color-brand-secondary-dark: "#4E2A14", /* Dark Brown (Dark Mode BG) */
+    --color-brand-accent: "#F8F4E1", /* Soft CreamBackground */
+    --color-brand-text-dark: "#7A5A31", /* Text color for buttons */
+    --color-brand-text-light: "#C4A76B", /* Light text for dark mode */
+
+}
