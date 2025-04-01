@@ -17,38 +17,44 @@ import ActionBtn from '../../components/ActionBtn.astro';
 import Blog from './Blog.astro';
 import PricingSection from './PricingSection.astro';
 import ModalPack from './ModalPack.astro';
+import Services from './Services.astro';
+import FeatArtists from '../../components/FeatArtists.astro';
+
 const lang = getLangFromUrl(Astro.url);
 
 ---
 
 <Layout 
 language={lang}
-title="CobiTek - Creating Unique Websites"
-description="Transform your business with a unique website.">
+title="Tay | Professional Music Studio | Recording, Mixing & Mastering Services"
+description="Elevate your sound at [Studio Name], a professional music studio offering top-tier recording, mixing, and mastering services. Whether you're an artist, producer, or band, we provide high-quality audio production to bring your vision to life. Book your session today!">
 
-	<main class="px-0 mt-10">
+		<SectionContainer id="hero" class="mt-0">
+			<Hero />
+		</SectionContainer>
 
-		<Hero />
+		<SectionContainer id="hero" class="mt-0">
+			<FeatArtists />
+		</SectionContainer>
 		
-			<SectionContainer id="portfolio">
-				<Projects />
-			</SectionContainer>
-		
-			<SectionContainer id="pricing">
-				<PricingSection />
-				<ModalPack />
-			</SectionContainer>
+		<SectionContainer id="portfolio">
+			<Projects />
+		</SectionContainer>
+	
+		<SectionContainer id="services" class="">
+			<Services />
+		</SectionContainer>
 
-			<SectionContainer id="contact">	
-				<Contact id="contact"/>
-			</SectionContainer>
+		<SectionContainer id="contact">	
+			<Contact id="contact"/>
+		</SectionContainer>
 
-			<!-- <SectionContainer id="about">
-				<p class="mt-2 mb-5 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl text-center">About me</p>
-				<About />
-			</SectionContainer> -->
+		<!-- <SectionContainer id="about">
+			<p class="mt-2 mb-5 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl text-center">About me</p>
+			<About />
+		</SectionContainer> -->
 
-				<!-- <Blog id="blog"/> -->
+			<!-- <Blog id="blog"/> -->
 
 	
 	</main>

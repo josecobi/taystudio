@@ -12,7 +12,10 @@
   "dependencies": {
     "@astrojs/tailwind": "^5.1.0",
     "@fontsource-variable/onest": "^5.0.4",
-    "astro": "^4.11.5",
+    "@fontsource/roboto-slab": "^5.2.5",
+    "@fontsource/rye": "^5.2.5",
+    "@fontsource/smokum": "^5.2.5",
+    "astro": "^5.5.5",
     "tailwindcss": "^3.4.5"
   }
 }

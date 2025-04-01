@@ -3,6 +3,10 @@ import '@fontsource-variable/onest';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { getLangFromUrl } from '../i18n/utils';
+import '@fontsource/roboto-slab';
+import '@fontsource/rye';
+
+
 
 const lang = getLangFromUrl(Astro.url);
 
@@ -19,7 +23,7 @@ console.log(currentLocale);
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={lang} class="text-black dark:text-white scroll-behavior: smooth font-serif bg-[#F8F4E1] dark:bg-slate-950 min-h-screen w-full overflow-x-hidden relative transition duration-300 ease-in transform hover:-translate-y-1 focus:outline-none">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
@@ -32,7 +36,7 @@ console.log(currentLocale);
 
 		<title>{title}</title>
 	</head>
-	<body class="relative text-black dark:text-white">
+	<body class="font-roboto relative text-black dark:text-white">
 		<div class="fixed left-0 top-0 -z-10 h-full w-full">
 			<div class="relative h-full w-full bg-white dark:bg-slate-950">
 				<div class="absolute top-0 bottom-0 z-[-2] min-h-screen w-full bg-gray-50 dark:bg-gray-950
@@ -52,11 +56,11 @@ console.log(currentLocale);
 		color-scheme: light dark;		
 	}
 	html {
-		font-family: "Onest Variable", system-ui, sans-serif;
+		font-family: 'Roboto Slab', serif, system-ui, sans-serif;
 		scroll-behavior: smooth;
 	}
 	body {
-		color: rgba(17, 17, 17, 0.9);
+		color: rgba(59, 47, 47, 0.9);
 		display: flex;
 		flex-direction: column;
 		min-height: 100vh;

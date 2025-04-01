@@ -8,39 +8,34 @@ import HostingIcon from '../../icons/HostingIcon.astro'
 
 const SERVICES = [
 {
-    title: 'Design',
-    description: "Your website's visuals are crucial in turning visitors into paying customers. Don't let poor design stand in the way.",
+    title: 'Composition & Scoring',
+    description: "Capture your best performance in a professional studio environment with high-quality microphones, preamps, and acoustics..",
     icon: PhoneIcon,
 },
 {
-    title: 'UX/UI',
-    description: 'Ensuring your customers and visitors have a consistent experience across all devices and platforms.',
+    title: 'Performance',
+    description: 'Balance every element of your track with expert mixing techniques to ensure clarity, depth, and a polished sound.',
     icon: UxUiIcon,
 },
 {
-    title: 'Branding',
-    description: "I'll collaborate with you to develop a branding strategy, or if you already have one, I'll help enhance its visibility.",
-    icon: BrandingIcon,
-},
-{
-    title: 'SEO',
-    description: "Missing out on customers who can't find you could be costing you significantly. I'll help ensure you're visible in the right places at the right times.",
+    title: 'Audio Design & Soundscaping',
+    description: "Get your music ready for streaming, radio, and distribution with industry-standard mastering that enhances loudness and dynamics.",
     icon: SeoIcon,
 },
 {
-    title: 'Hosting / Maintenance',
-    description: "Ensure your website stays online, secure, and up-to-date with my Hosting Management & Maintenance service. I handle all technical aspects, including updates, backups, and performance monitoring, so you can focus on growing your business worry-free.",
+    title: 'Music Production',
+    description: "Need a custom beat or full music production? We craft unique sounds tailored to your artistic style.",
     icon: HostingIcon,
 },
-
 ]
 ---
-<div class="mt-16 sm:mt-20">
-    <h2 class="text-3xl text-white font-semibold mb-5 gap-x-3">Services</h2>
-    <div class="mx-auto grid max-w-2xl grid-cols-1 gap-6  lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8 text-left">
+<div class="mx-auto max-w-5xl text-center">
+
+    <p class="text-4xl font-bold tracking-tight  text-[#C4A76B] sm:text-3xl">Services</p>
+    <div class="mx-auto mt-4 grid max-w-2xl grid-cols-1 gap-6  lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:gap-8 text-left">
         {SERVICES.map(({ title, description, icon }) => (
         <ServiceItem title={ title } description={description} icon={icon} />
         ))}
     </div>
 
-  </div>
+</div>

@@ -1,173 +1,66 @@
 ---
-import ReactIcon from "../../icons/ReactIcon.astro"
-import JavaScriptIcon from "../../icons/JavaScriptIcon.astro"
 import Link from "../../icons/Link.astro"
 import LinkButton from "../../components/LinkButton.astro"
-import GithubIcon from "../../icons/GithubIcon.astro"
-import NodeIcon from "../../icons/NodeIcon.astro"
-import ExpressIcon from "../../icons/ExpressIcon.astro"
-import HTMLIcon from "../../icons/HTMLIcon.astro"
-import CSSIcon from "../../icons/CSSIcon.astro"
-import MongoIcon from "../../icons/MongoIcon.astro"
-import BootstrapIcon from "../../icons/BootstrapIcon.astro"
-import FlaskIcon from "../../icons/FlaskIcon.astro"
-import PythonIcon from "../../icons/PythonIcon.astro"
 import YoutubeIcon from "../../icons/YoutubeIcon.astro"
-import SQLiteIcon from "../../icons/SQLiteIcon.astro"
-import AstroIcon from "../../icons/AstroIcon.astro"
-import Tailwind from "../../icons/TailwindIcon.astro"
 
-const TAGS = {
-   REACT: {
-    name: "React.js",
-    class: "bg-black text-white",
-    icon: ReactIcon,
 
-   },
-   JAVASCRIPT: {
-    name: "JavaScript.js",
-    class: "bg-black text-white",
-    icon: JavaScriptIcon,
-
-   },
-   NODEJS: {
-    name: "Node.js",
-    class: "bg-[#1c3a1b] text-white",
-    icon: NodeIcon,
-   },
-   EXPRESS: {
-    name: "Express.js",
-    class: "bg-white text-black",
-    icon: ExpressIcon,
-   },
-   MONGODB: {
-    name: "MongoDB",
-    class: "bg-[#009f43] text-white",
-    icon: MongoIcon,
-   },
-   BOOTSTRAP: {
-    name: "Bootstrap",
-    class: "bg-[#30075e] text-white",
-    icon: BootstrapIcon,
-   },
-   HTML: {
-    name: "HTML",
-    class: "bg-[#94361d] text-white",
-    icon: HTMLIcon,
-   },
-   CSS: {
-    name: "CSS",
-    class: "bg-[#032338] text-white",
-    icon: CSSIcon,
-   },
-   FLASK: {
-    name: "Flask",
-    class: "bg-black text-white",
-    icon: FlaskIcon,
-   },
-   PYTHON: {
-    name: "Python",
-    class: "bg-[#233e54] text-white",
-    icon: PythonIcon,
-   },
-   SQLITE: {
-    name: "SQLite",
-    class: "bg-[#003b57] text-white",
-    icon: SQLiteIcon,
-   },
-   ASTRO: {
-    name: "Astro",
-    class: "bg-black text-white",
-    icon: AstroIcon,
-   },
-   TAILWIND: {
-    name: "Tailwind",
-    class: "bg-black text-white",
-    icon: Tailwind,
-   }   
-}
 const PROJECTS = [
     {
-        title: "Lexaviva",
-        description: "Spanish vocab app with a dynamic and responsive interface, and personalized learning options for efficient Spanish vocabulary acquisition.",
+        title: "Audio Design",
+        description: "From immersive soundscapes to custom effects, our audio design projects bring depth and character to films, games, and media productions.",
         youtube:"",
-        link: "https://lexaviva.up.railway.app/",
-        github:"https://github.com/josecobi/lexaviva-frontend",
+        link: "",
+        github:"",
         image:"/lexaviva-capture.webp",
-        tags:[TAGS.REACT, TAGS.JAVASCRIPT, TAGS.NODEJS, TAGS.EXPRESS, TAGS.HTML, TAGS.CSS, TAGS.MONGODB, TAGS.BOOTSTRAP ]
     },
     {
-        title: "URLSnap",
-        description: "An URL shortener web application that enables users to shorten long URLs and track the history of their shortened links. This tool is ideal for companies and developers looking to streamline their link management and optimize their projects.",
+        title: "Composition and Scoring",
+        description: "Original compositions crafted for films, commercials, and multimedia, blending emotion and storytelling through music.",
         youtube:"",
         link: "",
-        github:"https://github.com/josecobi/urlShortener-with-custom-RESTful-API",
+        github:"",
         image:"/url-shortener-capture.webp",
-        tags:[TAGS.JAVASCRIPT, TAGS.NODEJS, TAGS.EXPRESS, TAGS.HTML, TAGS.CSS, TAGS.BOOTSTRAP ] 
     },
     {
-        title: "SpanishHub",
-        description: "A comprehensive web application designed to enhance users' Spanish language proficiency through interactive drag-and-drop activities focused on verb conjugations. Users can practice and improve their skills while receiving instant feedback and scoring.",
-        youtube:"https://www.youtube.com/watch?v=WeD9Q9Uob10",
+        title: "Session Artist Clients",
+        description: "A showcase of talented artists who have recorded with us, featuring vocalists, instrumentalists, and bands from various genres.",
+        youtube:"",
         link: "",
-        github:"https://github.com/josecobi/SpanishHub",
+        github:"",
         image:"/spanishhub-capture.webp",
-        tags:[TAGS.JAVASCRIPT, TAGS.PYTHON, TAGS.FLASK, TAGS.SQLITE, TAGS.HTML, TAGS.CSS, TAGS.BOOTSTRAP ] 
     },
     {
-        title: "Pokemon",
-        description: "An interactive web app built with Astro and Solid.js, allowing users to explore different Pokémon with titles, images, and audio. Featuring a favorites system powered by local storage, users can easily add or remove their favorite Pokémon. The app includes pagination and ViewTransitions for a seamless user experience, with a modern design styled using TailwindCSS.",
+        title: "Songwriting and Production",
+        description: "Fully produced songs, from initial concept to final master, demonstrating our expertise in songwriting, arrangement, and high-quality production.",
         link: "",
-        github:"https://github.com/josecobi/pokemon-static-astro",
+        github:"",
         image:"/pokemon.webp",
-        tags:[TAGS.JAVASCRIPT, TAGS.ASTRO, TAGS.HTML, TAGS.CSS, TAGS.TAILWIND ] 
     },
-    // {
-    //     title: "Lexaviva",
-    //     description: "ADD DESCRIPTION",
-    //     link: "#",
-    //     github:"#",
-    //     image:"https://via.placeholder.com/300x200",
-    //     tags:['HTML', 'CSS', 'JavaScript', 'React', "Express", 'MongoDB', 'Mongoose', 'Redux']
-    // },
 ]
 ---
 <div class="flex flex-col gap-10">
-  <div class="mx-auto max-w-4xl text-center">
-    <p class="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Portfolio</p>
+  <div class="mx-auto max-w-5xl text-center">
+    <p class="text-4xl font-bold tracking-tight text-tertiary sm:text-3xl">My Work</p>
   </div>
 
-  <ul role="list" class="grid grid-cols-1 gap-8 sm:grid-cols-1 lg:grid-cols-2 xl:gap-8 mx-auto max-w-4xl p-3">
+  <ul role="list" class="grid grid-cols-1 gap-8 sm:grid-cols-1 lg:grid-cols-2 xl:gap-8 mx-auto max-w-4xl">
     {
-      PROJECTS.map(({ image, title, description, tags, link, github, youtube }) => (
+      PROJECTS.map(({ image, title, description, link, github, youtube }) => (
         <li class="relative p-4">
           <div class="flex flex-col items-center gap-3 shadow-xl rounded-xl overflow-hidden hover:-translate-y-1 hover:shadow-2xl transition duration-500 ease-in-out min-h-full">
-            <img loading="lazy" alt="Projects screenshot" class="object-cover w-full h-56 transition sm:h-full hover:scale-105" src={image} />
+            <img loading="lazy" alt="Projects Photo" class="object-cover w-full h-56 transition sm:h-full hover:scale-105" src={image} />
             
             <div class="p-4 w-full">
               <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
                 {title}
               </h3>
 
-              <div class="flex flex-wrap mt-2">
-                <ul class="flex flex-wrap gap-2">
-                  {tags.map((tag) => (
-                    <li>
-                      <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}>
-                        <tag.icon class="size-4" />
-                        {tag.name}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
 
               <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
 
               <footer class="flex gap-4 mt-4">
                 {github && (
                   <LinkButton href={github}>
-                    <GithubIcon class="size-6" />
                     Code
                   </LinkButton>
                 )}
