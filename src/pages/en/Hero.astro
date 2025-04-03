@@ -9,30 +9,27 @@ const lang = getLangFromUrl(Astro.url);
 ---
 
 <div class="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32 mx-auto min-h-screen pt-20">
-    <!-- <img src="/hero-bg.avif" alt="hero-background-image" class="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center"> -->
-    <picture>
-      <!-- Specify the image for small screens -->
+  <picture>
       <source srcset="/hero-bg-mobile.avif" media="(max-width: 640px)">
       <source srcset="/hero-bg-mobile.webp" media="(max-width: 640px)">
-
-      <!-- Fallback to the original image for larger screens -->
       <source srcset="/hero-bg.avif" type="image/avif" media="(min-width: 641px)">
       <source srcset="/hero-bg.webp" type="image/webp" media="(min-width: 641px)">
-      <img src="/hero-bg.avif" srcset="/hero-bg.avif 1x, /hero-bg@2x.avif 2x"  alt="hero-background-image" class="absolute inset-0 -z-10 h-full w-full object-cover object-left md:object-center">
+      <img src="/hero-bg.avif" alt="hero-background-image" 
+          class="absolute inset-0 -z-10 h-full w-full object-cover object-left md:object-center">
   </picture>
-    <!-- <div class="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl">
-      <div class="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#1b2263] to-[#776fff] opacity-20" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
-    </div>
-    <div class="absolute -top-52 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu">
-      <div class="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#1b2263] to-[#776fff] opacity-20" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
-    </div> -->
-    <div class="mx-auto max-w-7xl px-6 lg:px-8 text-center mt-10">
+
+  <!-- Gradient Overlay -->
+  <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent sm:hidden"></div>
+
+  <div class="mx-auto max-w-7xl px-6 lg:px-8 text-center relative z-10">
       <div class="mx-auto max-w-2xl lg:mx-auto mb-3">
-        <h2 class="text-4xl font-smokum font-semibold text-[#F2E6D0] drop-shadow-[4px_4px_8px_rgba(255,255,255,0.2)] tracking-wide sm:text-8xl">Sonic Storytelling for Any Art Form</h2>
-        <p class="my-5 text-lg leading-8 text-[#F2E6D0]">Professional recording, mixing, and mastering services to take your music to the next level. Whether you're an artist, producer, or band, we help you craft the perfect sound.</p>
-        <ActionBtn href=`/${lang}/GetQuote`>Book a Session</ActionBtn>
+          <h2 class="font-semibold tracking-tight text-[#E5B473] text-5xl  md:text-6xl lg:text-7xl xl:text-8xl">
+              Sonic Storytelling for Any Art Form
+          </h2>
+          <p class="my-5 text-lg leading-8 text-[#F2E6D0]">
+              Professional recording, mixing, and mastering services to take your music to the next level. Whether you're an artist, producer, or band, we help you craft the perfect sound.
+          </p>
+          <ActionBtn href=`/${lang}/GetQuote`>Book a Session</ActionBtn>
       </div>
-      
-      
-    </div>
   </div>
+</div>

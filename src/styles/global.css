@@ -4,12 +4,15 @@
 
 
 :root {
-    --color-brand-primary: "#C4A76B", /* Muted Gold */
-    --color-brand-primary-dark: "#7A5A31", /* Darker Gold/Bronze */
-    --color-brand-secondary: "#E0C3A0", /* Light Beige (Button BG) */
-    --color-brand-secondary-dark: "#4E2A14", /* Dark Brown (Dark Mode BG) */
-    --color-brand-accent: "#F8F4E1", /* Soft CreamBackground */
-    --color-brand-text-dark: "#7A5A31", /* Text color for buttons */
-    --color-brand-text-light: "#C4A76B", /* Light text for dark mode */
+    --color-brand-primary: #C4A76B !important; /* Muted Gold */
+    --color-brand-primary-dark: #7A5A31 !important; /* Darker Gold/Bronze */
+    --color-brand-secondary: #E0C3A0 !important; /* Light Beige (Button BG) */
+    --color-brand-secondary-dark: #4E2A14 !important; /* Dark Brown (Dark Mode BG) */
+    --color-brand-accent: #F8F4E1 !important; /* Soft CreamBackground */
+    --color-brand-text-dark: #7A5A31 !important; /* Text color for buttons */
+    --color-brand-text-light: #C4A76B !important; /* Light text for dark mode */
+    --color-brand-electric-blue: #5973ff !important; /* Light text for dark mode */
+    --color-brand-electric-blue-light: #cdd5ff !important; /* Light text for dark mode */
+
 
 }

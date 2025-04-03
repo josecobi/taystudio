@@ -1,0 +1,92 @@
+---
+const ARTISTS = [
+{
+    artist_name: "Brothers Clair",
+    photo: "/ComfyUI_00207_.png",
+    description:"Description",
+},
+{
+    artist_name: "Rasha Jay",
+    photo: "/ComfyUI_00205_.png",
+    description:"Description",
+},
+{
+    artist_name: "Will Sims",
+    photo: "/ComfyUI_00203_.png",
+    description:"Description",
+},
+{
+    artist_name: "Tionesta",
+    photo: "/ComfyUI_00202_.png",
+    description:"Description",
+},
+{
+    artist_name: "Jocelyn Faro",
+    photo: "/ComfyUI_00252_.png",
+    description:"Description",
+},
+{
+    artist_name: "Megan Leigh",
+    photo: "/ComfyUI_00064_.png",
+    description:"Description",
+},
+{
+    artist_name: "Grayson Moon",
+    photo: "/ComfyUI_00234_.png",
+    description:"Description",
+},
+{
+    artist_name: "Astro Villas",
+    photo: "/ComfyUI_00237_.png",
+    description:"Description",
+},
+{
+    artist_name: "Curbside at Midnite",
+    photo: "/ComfyUI_00066_.png",
+    description:"Description",
+},
+{
+    artist_name: "Starfall",
+    photo: "/ComfyUI_00198_.png",
+    description:"Description",
+},
+{
+    artist_name: "J. Edwards",
+    photo: "/ComfyUI_00043_.png",
+    description:"Description",
+},
+{
+    artist_name: "The Man in the Flames",
+    photo: "/ComfyUI_00067_.png",
+    description:"Description",
+},
+
+]
+---
+
+
+<div class="py-24 sm:py-32">
+    <div class="mx-auto grid max-w-7xl gap-20 px-6 lg:px-8 xl:grid-cols-4">
+      <div class="max-w-xl">
+        <h2 class="text-pretty text-3xl font-semibold tracking-tight text-brandPrimary sm:text-4xl">Featured Artists</h2>
+        <p class="mt-6 text-lg/8 text-gray-600">Discover the talented artists who have collaborated with me to bring their musical vision to life. From songwriting to production, we craft unique sounds that captivate audiences.</p>
+      </div>
+      <ul role="list" class="grid gap-x-8 gap-y-12 sm:grid-cols-3 sm:gap-y-16 xl:col-span-3">
+       
+        {
+        ARTISTS.map(({ artist_name, photo, description }) => {
+        return(<li>
+          <div class="flex items-center gap-x-6">
+            <img class="size-16 rounded-full" src={photo} alt={artist_name}"-photo">
+            <div>
+              <h3 class="text-base/7 font-semibold tracking-tight text-gray-900">{artist_name}</h3>
+              <p class="text-sm/6 font-semibold text-indigo-600">{description}</p>
+            </div>
+          </div>
+        </li>)
+        })
+        }
+        
+      </ul>
+    </div>
+  </div>

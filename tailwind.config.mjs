@@ -4,16 +4,21 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				brandPrimary: "var(--color-brand-primary)", // Muted Gold
-				brandPrimaryDark: "var(--color-brand-primary-dark)", // Darker Gold/Bronze
-				brandSecondary: "var(--color-brand-secondary)", // Light Beige (Button BG)
-				brandSecondaryDark: "var(--color-brand-secondary)", // Dark Brown (Dark Mode BG)
-				brandAccent: "var(--color-accent)", // Soft Cream/Background
-				brandTextDark: "var(--color-brand-text-dark)", // Text color for buttons
-				brandTextLight: "var(--color-brand-text-light)", // Light text for dark mode
+				brandPrimary: '#C4A76B',  // Muted Gold
+				brandPrimaryDark: '#7A5A31',  // Darker Gold/Bronze
+				brandSecondary: '#E0C3A0',  // Light Beige (Button BG)
+				brandSecondaryDark: '#4E2A14',  // Dark Brown (Dark Mode BG)
+				brandAccent: '#F8F4E1',  // Soft Cream
+				brandTextDark: '#7A5A31',  // Dark Text Color
+				brandTextLight: '#C4A76B',  // Light Text Color
+				navNearBlack: '#111111',
+				navTextSoftWhite: '#E0D7C9',
+				navTextHoverMutedViolet: '#A87CFF',
+				navActiveLik: '#D4AFFF',
 
-				
-			},
+
+
+			  },
 			boxShadow: {
 			'inset': 'inset 0 0 0.8px 2px rgba(255, 255, 255, 1)',
 		  },

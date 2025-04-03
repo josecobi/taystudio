@@ -9,7 +9,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<header class="text-[#F2E6D0] fixed top-0 z-10 w-full">
+<header class="text-navTextSoftWhite bg-navNearBlack fixed top-0 z-10 w-full">
   <nav class="mx-auto flex max-w-9xl items-center justify-between p-4 lg:px-8" aria-label="Global">
       <div class="flex flex-1">
         <a href="#" class="-m-1.5 p-1.5">
@@ -18,9 +18,9 @@ const t = useTranslations(lang);
         </a>
       </div>
       <div class="hidden lg:flex lg:gap-x-12 mx-auto">
-        <a href=`/${lang}/#` class="hover:bg-[#E0C3A0] hover:text-[#7A5A31] p-2 rounded focus:outline-none focus:ring-4 focus:ring-white transition-colors duration-200 ease-in-out">{t('nav.home')}</a>
-        <a href=`/${lang}/#portfolio` class="hover:bg-[#E0C3A0] hover:text-[#7A5A31] p-2 rounded focus:outline-none focus:ring-4 focus:ring-white transition-colors duration-200 ease-in-out">{t('nav.portfolio')}</a>
-        <a href=`/${lang}/About` class="hover:bg-[#E0C3A0] hover:text-[#7A5A31] p-2 rounded focus:outline-none focus:ring-4 focus:ring-white transition-colors duration-200 ease-in-out">{t('nav.about')}</a>
+        <a href=`/${lang}/#` class="hover:drop-shadow-[4px_4px_15px_rgba(255,255,255,0.8)] p-2 rounded focus:outline-none focus:ring-4 focus:ring-white transition-colors duration-200 ease-in-out">{t('nav.home')}</a>
+        <a href=`/${lang}/#portfolio` class="hover:drop-shadow-[4px_4px_15px_rgba(255,255,255,0.8)] p-2 rounded focus:outline-none focus:ring-4 focus:ring-white transition-colors duration-200 ease-in-out">{t('nav.portfolio')}</a>
+        <a href=`/${lang}/About` class="hover:drop-shadow-[4px_4px_15px_rgba(255,255,255,0.8)] p-2 rounded focus:outline-none focus:ring-4 focus:ring-white transition-colors duration-200 ease-in-out">{t('nav.about')}</a>
       </div>
       <div class="hidden lg:flex lg:flex-1 lg:justify-end">
         <ActionBtn href=`/${lang}/GetQuote`>Book a session</ActionBtn>

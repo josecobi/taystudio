@@ -19,6 +19,7 @@ import PricingSection from './PricingSection.astro';
 import ModalPack from './ModalPack.astro';
 import Services from './Services.astro';
 import FeatArtists from '../../components/FeatArtists.astro';
+import FeatArtistsWithPhotos from '../../components/FeatArtistsWithPhotos.astro';
 
 const lang = getLangFromUrl(Astro.url);
 
@@ -34,7 +35,7 @@ description="Elevate your sound at [Studio Name], a professional music studio of
 		</SectionContainer>
 
 		<SectionContainer id="hero" class="mt-0">
-			<FeatArtists />
+			<FeatArtistsWithPhotos />
 		</SectionContainer>
 		
 		<SectionContainer id="portfolio">
