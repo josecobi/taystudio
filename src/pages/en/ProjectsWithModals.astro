@@ -1,93 +1,128 @@
 ---
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'free-astro-components'
-import Link from "../../icons/Link.astro"
 import LinkButton from "../../components/LinkButton.astro"
-import YoutubeIcon from "../../icons/YoutubeIcon.astro"
-
 
 const PROJECTS = [
-    {
-        title: "Audio Design",
-        description: "From immersive soundscapes to custom effects, our audio design projects bring depth and character to films, games, and media productions.",
-        youtube:"",
-        link: "",
-        github:"",
-        image:"/ComfyUI_00181_.png",
-    },
-    {
-        title: "Composition and Scoring",
-        description: "Original compositions crafted for films, commercials, and multimedia, blending emotion and storytelling through music.",
-        youtube:"",
-        link: "",
-        github:"",
-        image:"/ComfyUI_00189_.png",
-    },
-    // {
-    //     title: "Session Artist Clients",
-    //     description: "A showcase of talented artists who have recorded with us, featuring vocalists, instrumentalists, and bands from various genres.",
-    //     youtube:"",
-    //     link: "",
-    //     github:"",
-    //     image:"/ComfyUI_00197_.png",
-    // },
-    {
-        title: "Songwriting and Production",
-        description: "Fully produced songs, from initial concept to final master, demonstrating our expertise in songwriting, arrangement, and high-quality production.",
-        link: "",
-        github:"",
-        image:"/ComfyUI_00188_.png",
-    },
+  {
+    title: "Audio Design",
+    description: "From immersive soundscapes to custom effects...",
+    link: "/audio/audio-design",
+    embeds: [
+      "https://bandcamp.com/EmbeddedTrack1",
+      "https://open.spotify.com/embed/track/spotifyTrack1",
+      "https://bandcamp.com/EmbeddedTrack2"
+    ],
+    image:"/ComfyUI_00181_.png",
+  },
+  {
+    title: "Composition and Scoring",
+    description: "Original compositions crafted for films...",
+    link: "/audio/composition-scoring",
+    embeds: [
+      "https://bandcamp.com/EmbeddedTrack3",
+      "https://open.spotify.com/embed/track/spotifyTrack2",
+      "https://bandcamp.com/EmbeddedTrack4"
+    ],
+    image:"/ComfyUI_00189_.png",
+  },
+  {
+    title: "Songwriting and Production",
+    description: "Fully produced songs from start to finish...",
+    link: "/audio/songwriting-production",
+    embeds: [
+      "https://open.spotify.com/embed/track/spotifyTrack3",
+      "https://bandcamp.com/EmbeddedTrack5",
+      "https://open.spotify.com/embed/track/spotifyTrack4"
+    ],
+    image:"/ComfyUI_00188_.png",
+  },
 ]
 ---
 
-<div class="py-5 sm:py-15">
-    <div class="mx-auto max-w-8xl px-6 lg:px-4 xl:grid lg:grid-cols-6 xl:gap-20">
-  
-      <!-- "My Work" Section (Appears first on small screens) -->
-      <div class="max-w-xl col-span-2 order-first text-center xl:order-last xl:text-start md:justify-self-center">
-        <h2 class="text-pretty text-3xl font-semibold tracking-tight text-[#fa643f] sm:text-4xl">My Work</h2>
-        <p class="mt-6 text-lg/8 text-gray-600">Explore a collection of projects where music and production come together to create something special. From composition and scoring to audio design and full-scale production, each piece showcases the artistry and dedication behind the sound.</p>
-      </div>
-  
-      <!-- Projects Grid -->
-      <div class="col-span-4 flex justify-center">
-        <ul role="list" class="grid grid-cols-1 sm:grid-cols-6 gap-5 items-center">
-          {
-            PROJECTS.map(({ image, title, description, link, github, youtube }) => (
-              <li class="relative p-4 flex justify-center h-full col-span-2">
-                <div class=" ring-1 pt-4 ring-mutedTeal flex flex-col items-center gap-3 shadow-xl rounded-xl overflow-hidden hover:-translate-y-1 hover:shadow-2xl transition duration-500 ease-in-out min-h-full">
-                  <img loading="lazy" alt="Projects Photo" class="object-cover w-44 h-44 transition sm:h-full hover:scale-105 rounded-md" src={image} />
-                  
-                  <div class="p-4 w-full">
-                    <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
-                      {title}
-                    </h3>
-                    <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
-                    <footer class="flex gap-4 mt-4">
-                        <Button label="Preview" data-modal-trigger="modal-id" />
+<!-- Modal Script (vanilla JS) -->
+<script is:inline>
+  window.addEventListener("DOMContentLoaded", () => {
+    const previewButtons = document.querySelectorAll("[data-preview]");
+    const triggerBtn = document.querySelector("[data-modal-trigger='dynamic-modal']");
+    const modalTitle = document.getElementById("modal-title");
+    const modalBody = document.getElementById("modal-body");
 
-                        <Modal id="modal-id">
-                        <ModalHeader>
-                            <h4>{title}</h4>
-                        </ModalHeader>
-                        <ModalBody>
-                            <p>
-                            This is the modal body. Featured audios go here
-                            </p>
-                        </ModalBody>
-                        <ModalFooter>
-                            <Button label="Close" data-modal-close />
-                        </ModalFooter>
-                        </Modal>
-                    </footer>
-                  </div>
+    previewButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const title = btn.dataset.title;
+        const embeds = JSON.parse(btn.dataset.embeds);
+
+        modalTitle.textContent = title;
+        modalBody.innerHTML = embeds.map(src => `
+          <iframe
+            src="${src}"
+            loading="lazy"
+            class="w-full aspect-video rounded-md border my-2"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          ></iframe>
+        `).join("");
+
+        triggerBtn.click(); // open the modal
+      });
+    });
+  });
+</script>
+
+<div class="py-5 sm:py-15">
+  <div class="mx-auto max-w-8xl px-6 lg:px-4 xl:grid lg:grid-cols-6 xl:gap-20">
+    
+    <!-- Text Section -->
+    <div class="max-w-xl col-span-2 order-first text-center xl:order-last xl:text-start md:justify-self-center">
+      <h2 class="text-3xl font-semibold tracking-tight text-[#fa643f] sm:text-4xl">My Work</h2>
+      <p class="mt-6 text-lg/8 text-gray-600">Explore a collection of projects where music and production come together to create something special.</p>
+    </div>
+
+    <!-- Projects -->
+    <div class="col-span-4 flex justify-center">
+      <ul class="grid grid-cols-1 sm:grid-cols-6 gap-5 items-center">
+        {
+          PROJECTS.map(({ image, title, description, embeds, link }) => (
+            <li class="relative p-4 flex justify-center h-full col-span-2">
+              <div class="ring-1 pt-4 ring-mutedTeal flex flex-col items-center gap-3 shadow-xl rounded-xl overflow-hidden hover:-translate-y-1 hover:shadow-2xl transition duration-500 ease-in-out min-h-full">
+                <img loading="lazy" alt="Project photo" class="object-cover w-44 h-44 sm:h-full hover:scale-105 rounded-md" src={image} />
+                <div class="p-4 w-full">
+                  <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">{title}</h3>
+                  <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
+                  <footer class="flex gap-4 mt-4">
+                    <button
+                      class="btn bg-[#fa643f] text-white px-4 py-2 rounded"
+                      data-preview
+                      data-title={title}
+                      data-embeds={JSON.stringify(embeds)}
+                    >
+                      Preview
+                    </button>
+                    <LinkButton href={link}>View All</LinkButton>
+                  </footer>
                 </div>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
     </div>
   </div>
-  
+</div>
 
+<!-- Hidden button to trigger modal programmatically -->
+<button data-modal-trigger="dynamic-modal" style="display:none;"></button>
+
+<!-- Shared Modal Component -->
+<Modal id="dynamic-modal">
+  <ModalHeader>
+    <h4 id="modal-title">Preview</h4>
+  </ModalHeader>
+  <ModalBody>
+    <div id="modal-body">
+      <!-- Embed audio players will appear here -->
+    </div>
+  </ModalBody>
+  <ModalFooter>
+    <Button label="Close" data-modal-close />
+  </ModalFooter>
+</Modal>
