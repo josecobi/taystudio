@@ -20,6 +20,7 @@ import ModalPack from './ModalPack.astro';
 import Services from './Services.astro';
 import FeatArtists from '../../components/FeatArtists.astro';
 import FeatArtistsWithPhotos from '../../components/FeatArtistsWithPhotos.astro';
+import ProjectsWithModals from './ProjectsWithModals.astro';
 
 const lang = getLangFromUrl(Astro.url);
 
@@ -39,12 +40,12 @@ description="Elevate your sound at [Studio Name], a professional music studio of
 		</SectionContainer>
 		
 		<SectionContainer id="portfolio">
-			<Projects />
+			<ProjectsWithModals />
 		</SectionContainer>
 	
-		<SectionContainer id="services" class="">
+		<!-- <SectionContainer id="services" class="">
 			<Services />
-		</SectionContainer>
+		</SectionContainer> -->
 
 		<SectionContainer id="contact">	
 			<Contact id="contact"/>

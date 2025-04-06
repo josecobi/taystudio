@@ -16,7 +16,20 @@ export default {
 				navTextHoverMutedViolet: '#A87CFF',
 				navActiveLik: '#D4AFFF',
 
-
+				// Warm tones from coolors palette
+				deepNavy: '#001219',  
+				deepTeal: '#005F73',  // Accent for links or small elements
+				mutedTeal: '#0A9396',  // Subtle highlights, maybe buttons
+				softTeal: '#94D2BD',  // Hover effects, dividers
+				warmBeige: '#E9D8A6',  // Hero text, section backgrounds
+				goldenOrange: '#EE9B00',  // Active buttons, highlights
+				richOrange: '#CA6702',  // CTA buttons
+				burntOrange: '#BB3E03',  // Button hover
+				deepRed: '#AE2012',  // Borders, small accents
+				boldRed: '#9B2226',  // Strongest accents, alerts
+				cream: '#f8f9fa',
+				accent: '#ff6b35',
+				mutedGray: '#ebedef'
 
 			  },
 			boxShadow: {

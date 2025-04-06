@@ -1,16 +1,27 @@
 ---
 const { href } = Astro.props
 ---
-
 <a class="items-center" href={href}>
   <span class="relative inline-flex overflow-hidden rounded-full p-[3px]">
-    <!-- <span class="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#6366F1_0%,#4F46E5_50%,#6366F1_100%)] dark:bg-[conic-gradient(from_90deg_at_50%_50%,#818CF8_0%,#312E81_50%,#818CF8_100%)]"></span> -->
+    <span class="absolute inset-[-1000%] ">
+</span>
 
-    <div class="inline-flex items-center justify-center w-full px-3 py-3 text-sm text-[#36270d] bg-[#E5B473]  rounded-full cursor-pointer dark:bg-[#312E81] dark:text-white/80 backdrop-blur-3xl whitespace-nowrap">
+    <div class="inline-flex items-center justify-center w-full px-3 py-3  font-semibold text-pretty text-sm bg-[#fa643f] text-navTextSoftWhite hover:bg-[#fa643f] hover:ring-4 hover:ring-navTextSoftWhite rounded-full cursor-pointer backdrop-blur-3xl whitespace-nowrap">
       <slot />
     </div>
   </span>
 </a>
+
+<!-- warm colors -->
+<!-- <a class="items-center" href={href}>
+  <span class="relative inline-flex overflow-hidden rounded-full p-[3px]"> -->
+    <!-- <span class="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#6366F1_0%,#4F46E5_50%,#6366F1_100%)] dark:bg-[conic-gradient(from_90deg_at_50%_50%,#818CF8_0%,#312E81_50%,#818CF8_100%)]"></span> -->
+
+    <!-- <div class="inline-flex items-center justify-center w-full px-3 py-3 text-sm text-[#36270d] bg-[#E5B473]  rounded-full cursor-pointer dark:bg-[#312E81] dark:text-white/80 backdrop-blur-3xl whitespace-nowrap">
+      <slot />
+    </div>
+  </span>
+</a> -->
 
 
 <!-- <a class="items-center" href={href}>

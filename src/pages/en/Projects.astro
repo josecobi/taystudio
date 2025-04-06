@@ -21,14 +21,14 @@ const PROJECTS = [
         github:"",
         image:"/ComfyUI_00189_.png",
     },
-    {
-        title: "Session Artist Clients",
-        description: "A showcase of talented artists who have recorded with us, featuring vocalists, instrumentalists, and bands from various genres.",
-        youtube:"",
-        link: "",
-        github:"",
-        image:"/ComfyUI_00197_.png",
-    },
+    // {
+    //     title: "Session Artist Clients",
+    //     description: "A showcase of talented artists who have recorded with us, featuring vocalists, instrumentalists, and bands from various genres.",
+    //     youtube:"",
+    //     link: "",
+    //     github:"",
+    //     image:"/ComfyUI_00197_.png",
+    // },
     {
         title: "Songwriting and Production",
         description: "Fully produced songs, from initial concept to final master, demonstrating our expertise in songwriting, arrangement, and high-quality production.",
@@ -39,98 +39,54 @@ const PROJECTS = [
 ]
 ---
 
-<div class="py-24 sm:py-32">
-  <div class="mx-auto grid max-w-7xl gap-20 px-6 lg:px-8 xl:grid-cols-5">
-    
-    <ul role="list" class="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-4">
-    {
-      PROJECTS.map(({ image, title, description, link, github, youtube }) => (
-        <li class="relative p-4">
-          <div class="flex flex-col items-center gap-3 shadow-xl rounded-xl overflow-hidden hover:-translate-y-1 hover:shadow-2xl transition duration-500 ease-in-out min-h-full">
-            <img loading="lazy" alt="Projects Photo" class="object-cover w-24 h-24 transition sm:h-full hover:scale-105" src={image} />
-            
-            <div class="p-4 w-full">
-              <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
-                {title}
-              </h3>
+<div class="py-5 sm:py-15">
+  <div class="mx-auto max-w-8xl px-6 lg:px-4 xl:grid lg:grid-cols-6 xl:gap-20">
 
+    <!-- "My Work" Section (Appears first on small screens) -->
+    <div class="max-w-xl col-span-2 order-first text-center xl:order-last xl:text-start md:justify-self-center">
+      <h2 class="text-pretty text-3xl font-semibold tracking-tight text-[#fa643f] sm:text-4xl">My Work</h2>
+      <p class="mt-6 text-lg/8 text-gray-600">Explore a collection of projects where music and production come together to create something special. From composition and scoring to audio design and full-scale production, each piece showcases the artistry and dedication behind the sound.</p>
+    </div>
 
-              <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
-
-              <footer class="flex gap-4 mt-4">
-                {github && (
-                  <LinkButton href={github}>
-                    Code
-                  </LinkButton>
-                )}
-                {link && (
-                  <LinkButton href={link}>
-                    <Link class="size-4" />
-                    Preview
-                  </LinkButton>
-                )}
-                {youtube && (
-                  <LinkButton href={youtube}>
-                    <YoutubeIcon class="size-4" />
-                    Highlight
-                  </LinkButton>
-                )}
-              </footer>
-            </div>
-          </div>
-        </li>
-      ))
-    }
-  </ul>
-  <div class="max-w-xl">
-    <h2 class="text-pretty text-3xl font-semibold tracking-tight text-brandPrimary sm:text-4xl">My Work</h2>
-    <p class="mt-6 text-lg/8 text-gray-600">Explore a collection of projects where music and production come together to create something special. From composition and scoring to audio design and full-scale production, each piece showcases the artistry and dedication behind the sound.</p>
+    <!-- Projects Grid -->
+    <div class="col-span-4 flex justify-center">
+      <ul role="list" class="grid grid-cols-1 sm:grid-cols-6 gap-5 items-center">
+        {
+          PROJECTS.map(({ image, title, description, link, github, youtube }) => (
+            <li class="relative p-4 flex justify-center h-full col-span-2">
+              <div class=" ring-1 pt-4 ring-mutedTeal flex flex-col items-center gap-3 shadow-xl rounded-xl overflow-hidden hover:-translate-y-1 hover:shadow-2xl transition duration-500 ease-in-out min-h-full">
+                <img loading="lazy" alt="Projects Photo" class="object-cover w-44 h-44 transition sm:h-full hover:scale-105 rounded-md" src={image} />
+                
+                <div class="p-4 w-full">
+                  <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+                    {title}
+                  </h3>
+                  <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
+                  <footer class="flex gap-4 mt-4">
+                    {github && (
+                      <LinkButton href={github}>
+                        Code
+                      </LinkButton>
+                    )}
+                    {link && (
+                      <LinkButton href={link}>
+                        <Link class="size-4" />
+                        Preview
+                      </LinkButton>
+                    )}
+                    {youtube && (
+                      <LinkButton href={youtube}>
+                        <YoutubeIcon class="size-4" />
+                        Highlight
+                      </LinkButton>
+                    )}
+                  </footer>
+                </div>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
   </div>
 </div>
-</div>
-<!-- <div class="flex flex-col gap-10">
-  <div class="mx-auto max-w-5xl text-center">
-    <p class="text-4xl font-bold tracking-tight text-brandPrimary sm:text-3xl">My Work</p>
-  </div>
-
-  <ul role="list" class="grid grid-cols-1 gap-8 sm:grid-cols-1 lg:grid-cols-2 xl:gap-8 mx-auto max-w-4xl">
-    {
-      PROJECTS.map(({ image, title, description, link, github, youtube }) => (
-        <li class="relative p-4">
-          <div class="flex flex-col items-center gap-3 shadow-xl rounded-xl overflow-hidden hover:-translate-y-1 hover:shadow-2xl transition duration-500 ease-in-out min-h-full">
-            <img loading="lazy" alt="Projects Photo" class="object-cover w-24 h-24 transition sm:h-full hover:scale-105" src={image} />
-            
-            <div class="p-4 w-full">
-              <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
-                {title}
-              </h3>
-
-
-              <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
-
-              <footer class="flex gap-4 mt-4">
-                {github && (
-                  <LinkButton href={github}>
-                    Code
-                  </LinkButton>
-                )}
-                {link && (
-                  <LinkButton href={link}>
-                    <Link class="size-4" />
-                    Preview
-                  </LinkButton>
-                )}
-                {youtube && (
-                  <LinkButton href={youtube}>
-                    <YoutubeIcon class="size-4" />
-                    Highlight
-                  </LinkButton>
-                )}
-              </footer>
-            </div>
-          </div>
-        </li>
-      ))
-    }
-  </ul>
-</div> -->
