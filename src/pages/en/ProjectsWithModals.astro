@@ -20,10 +20,9 @@ const PROJECTS = [
     link: "/audio/composition-scoring",
     embeds: [
       "https://bandcamp.com/EmbeddedPlayer/album=1576530341/size=large/bgcol=ffffff/linkcol=e99708/tracklist=false/artwork=small/track=861248688/transparent=true/",
-      "https://open.spotify.com/embed/track/spotifyTrack2",
-      "https://bandcamp.com/EmbeddedTrack4"
+    
     ],
-    image:"/ComfyUI_00189_.png",
+    image:"/ComfyUI_00269_.png",
   },
   {
     title: "Songwriting and Production",
@@ -73,7 +72,7 @@ const PROJECTS = [
     
     <!-- Text Section -->
     <div class="max-w-xl col-span-2 order-first text-center xl:order-last xl:text-start md:justify-self-center">
-      <h2 class="text-3xl font-semibold tracking-tight text-[#fa643f] sm:text-4xl">My Work</h2>
+      <h2 class="text-3xl font-semibold tracking-tight text-richOrange sm:text-4xl">My Work</h2>
       <p class="mt-6 text-lg/8 text-gray-600">Explore a collection of projects where music and production come together to create something special.</p>
     </div>
    
@@ -90,7 +89,7 @@ const PROJECTS = [
                   <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
                   <footer class="flex gap-4 mt-4">
                     <button
-                      class="btn bg-[#fa643f] text-white px-4 py-2 rounded"
+                      class="btn bg-richOrange text-white px-4 py-2 rounded"
                       data-preview
                       data-title={title}
                       data-embeds={JSON.stringify(embeds)}
@@ -115,7 +114,7 @@ const PROJECTS = [
 <!-- Shared Modal Component -->
 <Modal id="dynamic-modal">
   <ModalHeader>
-    <h4 id="modal-title">Preview</h4>
+    <h4 id="modal-title" class="text-richOrange font-bold">Preview</h4>
   </ModalHeader>
   <ModalBody>
     <div id="modal-body">

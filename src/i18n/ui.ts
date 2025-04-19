@@ -14,6 +14,7 @@ export const ui = {
     'nav.contact': 'Contact',
     'nav.language': 'Language',
     'nav.services': 'Services',
+    'nav.artists': 'Artists',
     
 
     
@@ -26,6 +27,8 @@ export const ui = {
     'nav.contact': 'Contacto',
     'nav.language': 'Idioma',
     'nav.services': 'Servicios',
+    'nav.artists': 'Artistas',
+
 
 
 
