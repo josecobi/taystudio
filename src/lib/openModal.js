@@ -6,7 +6,7 @@ function openModal(selectedPackage) {
     document.getElementById('modal').classList.remove('hidden');
   
     hbspt.forms.create({
-      portalId: "47781443",
+      portalId: "#",
       formId: selectedPackage,
       target: "#hubspotFormContainer",
     });
