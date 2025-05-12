@@ -10,7 +10,7 @@ const PROJECTS = [
   {
     title: "Audio Design",
     description: "From immersive soundscapes to custom effects, our audio design projects bring depth and character to films, games, and media productions.",
-    link: "/audio/audio-design",
+    link: `/${lang}/AudioDesign`,
     embeds: [
       "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2072184264%3Fsecret_token%3Ds-k2OhZd9pVaa&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=false",
       "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2072187372%3Fsecret_token%3Ds-uBbb9CNNNt6&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
@@ -71,17 +71,17 @@ const PROJECTS = [
   });
 </script>
 
-<div class="py-5 sm:py-15">
-  <div class="mx-auto max-w-8xl px-6 lg:px-4 xl:grid lg:grid-cols-6 xl:gap-14">
+
+  <div class="mx-auto max-w-8xl px-6 lg:px-4 xl:grid lg:grid-cols-6 xl:gap-14 py-5 sm:py-15">
     
     <!-- Text Section -->
-     <div class="max-w-xl col-span-2 order-first xl:order-last text-center">
-      <div class="xl:text-start md:justify-self-center">
-      <h2 class="text-3xl font-semibold tracking-tight text-richOrange sm:text-4xl">Works</h2>
-      <p class="mt-6 text-lg/8 text-gray-600">Explore a collection of projects where music and production come together to create something special.</p>
+     <div class="max-w-xl col-span-2 order-first xl:order-last flex flex-wrap justify-center gap-6 mb-4 mx-auto">
+      <div class="xs:h-4 xl:h-10 justify-self-center "> 
+          <h2 class="text-3xl font-semibold tracking-tight text-richOrange sm:text-4xl">Works</h2>
+          <p class="mt-6 text-lg/8 text-gray-600">Explore a collection of projects where music and production come together to create something special.</p>
       </div>
       
-      <ActionBtn href=`/${lang}/GetQuote` class="justify-self-center">Book a Session</ActionBtn>
+      <ActionBtn href=`/${lang}/GetQuote` class=" ">Book a Session</ActionBtn>
       
     </div>
    
@@ -115,7 +115,7 @@ const PROJECTS = [
       </ul>
     </div>
   </div>
-</div>
+
 
 <!-- Hidden button to trigger modal programmatically -->
 <button data-modal-trigger="dynamic-modal" style="display:none;"></button>
