@@ -2,32 +2,32 @@
 const ARTISTS = [
 {
     artist_name: "Brothers Clair",
-    photo: "/ComfyUI_00207_.png",
+    photo: "/artists-photos/brothers-clair.webp",
     description:"Description",
 },
 {
     artist_name: "Rasha Jay",
-    photo: "/ComfyUI_00205_.png",
+    photo: "/artists-photos/rasha-jay.webp",
     description:"Description",
 },
 {
     artist_name: "Will Sims",
-    photo: "/ComfyUI_00203_.png",
+    photo: "/artists-photos/will-sims.webp",
     description:"Description",
 },
 {
     artist_name: "Tionesta",
-    photo: "/ComfyUI_00202_.png",
+    photo: "/artists-photos/tionesta.webp",
     description:"Description",
 },
 {
     artist_name: "Jocelyn Faro",
-    photo: "/ComfyUI_00252_.png",
+    photo: "/artists-photos/jocelyn-faro.webp",
     description:"Description",
 },
 {
     artist_name: "Megan Leigh",
-    photo: "/ComfyUI_00064_.png",
+    photo: "/artists-photos/megan-leigh.webp",
     description:"Description",
 },
 // {
@@ -76,8 +76,8 @@ const ARTISTS = [
         {
         ARTISTS.map(({ artist_name, photo, description }) => {
         return(<li>
-          <div class="flex items-center gap-x-8">
-            <img class="size-16 rounded-full" src={photo} alt={artist_name}"-photo">
+          <div class="flex items-center gap-x-6">
+            <img class="size-24 rounded-xl" src={photo} alt={artist_name}"-photo">
             <div>
               <h3 class="text-base/7 font-semibold tracking-tight text-gray-900">{artist_name}</h3>
               <p class="text-sm/6 font-semibold text-deepTeal">{description}</p>

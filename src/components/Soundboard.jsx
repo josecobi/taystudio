@@ -1,240 +1,118 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Howl } from 'howler';
 import { FaPlay, FaPause, FaStop, FaRedo, FaVolumeUp } from 'react-icons/fa';
+import Player from './Player';
 
 
+// const SoundCategories = [
+//   { label: 'Background Soundscapes', sounds: BGSounds },
+//   { label: 'SFX', sounds: SFXSounds },
+// ]
+
+// const BGSounds = [
+//   { label: 'Celestial Echoes', src: '/sounds/Background_Soundscapes/Celestial_Echoes.mp3' },
+//   { label: 'City Nights', src: '/sounds/Background_Soundscapes/City_Nights.mp3' },
+//   { label: 'Hidden_Grove', src: '/sounds/Background_Soundscapes/Hidden_Grove.mp3' },
+//   { label: 'Zen_Harmony', src: '/sounds/Background_Soundscapes/Zen_Harmony.mp3' },
+// ];
+
+// const SFXSounds = [
+//   { label: 'Explosion', src: '/sounds/SFX/Explosion.mp3' },
+//   { label: 'Mech Walk', src: '/sounds/SFX/Mech_Walk.mp3' },
+//   { label: 'MEMP', src: '/sounds/SFX/MEMP.mp3' },
+// ];
+
+// const SoundBoard = () => 
+//   {
+    
+
+//     return (
+//       <div className="p-4 space-y-6">
+        
+//         <h2 className="text-pretty text-2xl font-semibold tracking-tight text-deepTeal">Soundboard</h2>
+//         <p>At the heart of our audio design process lies the soundboard — the control center where creativity meets precision. Our state-of-the-art soundboards allow for seamless mixing, layering, and manipulation of audio elements to craft a rich, immersive sound experience. Whether we're balancing vocals, fine-tuning instruments, or sculpting textures for film, games, or albums, our engineers use the soundboard to shape every sonic detail with expert care. This is where raw recordings are transformed into polished, professional soundscapes.</p>
+//         {SoundCategories.map(({ label, sounds }) => (
+//          <div key={label}>
+//           <h3 className="text-xl font-semibold tracking-tight mb-4">{label}</h3>
+//           <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-3 gap-6">
+//             {sounds.map(({ label: soundLabel, src }) => (
+//               <Player
+//                 key={soundLabel}
+//                 label={soundLabel}
+//                 src={src}
+//                 sounds={sounds}
+//               />
+//             ))}
+//             </div>
+            
+        
+//         <h3 className="text-pretty text-xl font-semibold tracking-tight">Background Soundscapes</h3>
+//         <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-3 gap-6">
+//           {BGSounds.map(({ label, src }) => (
+//             <Player
+//               key={label}
+//               label={label}
+//               src={src} 
+//               sounds={BGSounds}/>
+//           ))}
+//         </div>
+//         <h3 className="text-pretty text-xl font-semibold tracking-tight">SFX</h3>
+//         <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-3 gap-6">
+//           {SFXSounds.map(({ label, src }) => (
+//             <Player
+//               key={label}
+//               label={label}
+//               src={src} 
+//               sounds={SFXSounds}/>
+//           ))}
+//         </div>
+//       </div>
+//     );
+//   };
+
+// export default SoundBoard;
 
 
-const sounds = [
-  { label: 'Bliss', src: '/sounds/Bliss.mp3' },
-  { label: 'Powerfull Trap', src: '/sounds/Powerful-Trap.mp3' },
-  { label: 'Feel Good', src: '/sounds/Feel-Good.mp3' },
-  { label: 'Luke Bergs Take I Easy', src: '/sounds/Luke-Bergs-Take-It-Easy.mp3' },
+// Sounds grouped by categories
+const BGSounds = [
+  { label: 'Celestial Echoes', src: '/sounds/Background_Soundscapes/Celestial_Echoes.mp3' },
+  { label: 'City Nights', src: '/sounds/Background_Soundscapes/City_Nights.mp3' },
+  { label: 'Hidden Grove', src: '/sounds/Background_Soundscapes/Hidden_Grove.mp3' },
+  { label: 'Zen Harmony', src: '/sounds/Background_Soundscapes/Zen_Harmony.mp3' },
 ];
 
-const SoundBoard = () => 
-  {
-    const soundRefs = useRef({});
-    const [looping, setLooping] = useState({});
-    const [volumes, setVolumes] = useState(
-      Object.fromEntries(sounds.map(({ src }) => [src, 1.0]))
-    );
-    const [progress, setProgress] = useState(
-      Object.fromEntries(sounds.map(({ src }) => [src, 0]))
-    );
-    const [playing, setPlaying] = useState({});
-    const [paused, setPaused] = useState({});
-    const [showVolume, setShowVolume] = useState(false);
-    const loopingRef = useRef({});
+const SFXSounds = [
+  { label: 'Explosion', src: '/sounds/SFX/Explosion.mp3' },
+  { label: 'Mech Walk', src: '/sounds/SFX/Mech_Walk.mp3' },
+  { label: 'MEMP', src: '/sounds/SFX/MEMP.mp3' },
+];
 
-    const animationRef = useRef(null);
-  
-    // Start animation loop to update progress
-    useEffect(() => {
-      const updateProgress = () => {
-        const newProgress = {};
-        for (const { src } of sounds) {
-          const sound = soundRefs.current[src];
-          if (sound && sound.playing() || sound && paused) {
-            newProgress[src] = (sound.seek() || 0) / sound.duration();
-          } else {
-            newProgress[src] = progress[src] || 0;
-          }
-        }
-        setProgress(prev => ({ ...prev, ...newProgress }));
-        animationRef.current = requestAnimationFrame(updateProgress);
-      };
-  
-      animationRef.current = requestAnimationFrame(updateProgress);
-      return () => cancelAnimationFrame(animationRef.current);
-    }, []);
-  
-    const getSound = (src) => {
-      if (!soundRefs.current[src]) {
-        soundRefs.current[src] = new Howl({
-          src: [src],
-          volume: volumes[src],
-          loop: looping[src] || false,
-          html5: true, // improves large file streaming
-          onend: () => {
-            if (loopingRef.current[src]) {
-              // Still looping, keep playing state
-              setPlaying((prev) => ({ ...prev, [src]: true }));
-              setPaused((prev) => ({ ...prev, [src]: false }));
-            } else {
-              setPlaying((prev) => ({ ...prev, [src]: false }));
-              setPaused((prev) => ({ ...prev, [src]: false }));
-              setProgress((prev) => ({ ...prev, [src]: 0 }));
-            }
-          },
-          
-        });
-      }
-  
-      const sound = soundRefs.current[src];
-      sound.volume(volumes[src]);
-      sound.loop(looping[src] || false);
-      return sound;
-    };
-  
-    const togglePlayPause = (src) => {
-        const sound = getSound(src);
-        if (sound.playing()) {
-          sound.pause();
-          setPaused((prev) => ({ ...prev, [src]: true })); 
+const SoundCategories = [
+  { label: 'Background Soundscapes', sounds: BGSounds },
+  { label: 'SFX', sounds: SFXSounds },
+];
 
-          setPlaying((prev) => ({ ...prev, [src]: false })); 
-        } else {
-          sound.play();
-          setPlaying((prev) => ({ ...prev, [src]: true })); 
-          setPaused((prev) => ({ ...prev, [src]: false })); 
-
-        }
-    };    
-  
-    const stopSound = (src) => {
-      const sound = getSound(src);
-      sound.stop();
-      setPlaying((prev) => ({ ...prev, [src]: false }));
-      setProgress(prev => ({ ...prev, [src]: 0 }));
-    };
-  
-    const toggleLoop = (src) => {
-      setLooping((prev) => {
-        const newLoop = !prev[src];
-        loopingRef.current[src] = newLoop; // keep ref in sync
-        if (soundRefs.current[src]) {
-          soundRefs.current[src].loop(newLoop);
-        }
-        return { ...prev, [src]: newLoop };
-      });
-    };
-  
-    const setVolume = (src, value) => {
-      setVolumes((prev) => {
-        const updated = { ...prev, [src]: value };
-        if (soundRefs.current[src]) {
-          soundRefs.current[src].volume(value);
-        }
-        return updated;
-      });
-    };   
- 
-    const seekSound = (src, value) => {
-      const sound = getSound(src);
-      const duration = sound.duration();
-      sound.seek(value * duration);
-      setProgress(prev => ({ ...prev, [src]: value }));
-    };
-    const toggleVolumeVisibility = (src) => {
-        setShowVolume(prev => ({ ...prev, [src]: !prev[src] }));
-      };
-
-    return (
-      <div className="p-4 space-y-6">
-        
-        <h2 className="text-pretty text-2xl font-semibold tracking-tight text-deepTeal">Soundboard</h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-3 gap-6">
-          {sounds.map(({ label, src }) => (
-            <div key={label} className="bg-deepTeal rounded-lg p-4 text-left">
-              <div className="flex gap-4">
-                {/* Left Column (Sound Controls) */}
-                <div className="flex-1 ">
-                  <h2 className="text-white text-lg mb-7 lg:mb-4">{label}</h2>
-                  <div className="flex gap-2 mt-10">
-                    <button
-                    onClick={() => togglePlayPause(src)}
-                    className="w-10 h-10 flex items-center justify-center rounded-full text-white ring-1 ring-slate-300"
-                    >
-                    {playing[src] ? <FaPause /> : <FaPlay />}
-                    </button>
-
-                    <button
-                      onClick={() => stopSound(src)}
-                      className="text-white ring-1 ring-slate-300 px-3 py-1 rounded-full"
-                    >
-                      <FaStop />
-                    </button>
-
-                    <button
-                    onClick={() => toggleLoop(src)}
-                    className={`w-10 h-10 flex items-center justify-center rounded-full text-sm transition-colors duration-200 ${
-                      looping[src] ? 'bg-richOrange text-white' : 'bg-gray-600 text-white'
-                    }`}
-                    aria-label="Toggle Loop"
-                    >
-                        <FaRedo />
-                    </button>
-
-
-                    {/* <div className="flex flex-1 ml-auto">
-                      <button 
-                          className=" text-sm text-white rounded-full bg-gray-600 p-3"
-                          onClick={() => toggleVolumeVisibility(src)}
-                      >
-                          <FaVolumeUp />
-                      </button>
-
-                        {showVolume[src] && (
-                          <div className="my-auto ml-2">
-                            <input
-                              type="range"
-                              min="0"
-                              max="1"
-                              step="0.01"
-                              value={volumes[src]}
-                              onChange={(e) => setVolume(src, parseFloat(e.target.value))}
-                              className="w-24  accent-richOrange my-auto"
-                            />
-                          </div>
-                        )}
-                    </div> */}
-                  </div>
-                </div>
-
-           
-                <div className="w-1/6 flex items-center justify-end gap-2 mt-4 mb-6">
-                  {showVolume[src] && (
-                    <div className="flex items-center ">
-                      <input
-                      type="range"
-                      min="0"
-                      max="1"
-                      step="0.01"
-                      value={volumes[src]}
-                      onChange={(e) => setVolume(src, parseFloat(e.target.value))}
-                      className="transform  w-24  accent-richOrange"
-                    />
-                    </div>)}
-            
-             
-                  <button 
-                    className="block text-sm text-white rounded-full bg-gray-600 p-3" 
-                    onClick={() => toggleVolumeVisibility(src)}>
-                        <FaVolumeUp />
-                  </button>
-                </div>
-                
-
-              </div>
-              {/* Progress Bar */}
-              <div>
-                <input
-                  type="range"
-                  min="0"
-                  max="1"
-                  step="0.001"
-                  value={progress[src]}
-                  onChange={(e) => seekSound(src, parseFloat(e.target.value))}
-                  className="w-full mt-4 accent-richOrange"
-                />
-              </div>
-            </div>
-          ))}
+const SoundBoard = () => {
+  return (
+    <div className="p-4 space-y-6">
+      {/* Loop through each sound category */}
+      {SoundCategories.map(({ label, sounds }) => (
+        <div key={label}>
+          <h3 className="text-xl text-gray-800 font-semibold tracking-tight mb-4">{label}</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-3 gap-6">
+            {sounds.map(({ label: soundLabel, src }) => (
+              <Player
+                key={soundLabel}
+                label={soundLabel}
+                src={src}
+                sounds={sounds}
+              />
+            ))}
+          </div>
         </div>
-      </div>
-    );
-  };
+      ))}
+    </div>
+  );
+};
 
 export default SoundBoard;
