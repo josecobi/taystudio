@@ -21,7 +21,7 @@ const PROJECTS = [
   {
     title: "Composition and Scoring",
     description: "Original compositions crafted for films, commercials, and multimedia, blending emotion and storytelling through music.",
-    link: "/audio/composition-scoring",
+    // link: "/audio/composition-scoring",
     embeds: [
       "https://bandcamp.com/EmbeddedPlayer/album=1576530341/size=large/bgcol=ffffff/linkcol=e99708/tracklist=false/artwork=small/track=861248688/transparent=true/",
     
@@ -31,7 +31,7 @@ const PROJECTS = [
   {
     title: "Songwriting and Production",
     description: "Fully produced songs, from initial concept to final master, demonstrating our expertise in songwriting, arrangement, and high-quality production.",
-    link: "/audio/songwriting-production",
+    // link: "/audio/songwriting-production",
     embeds: [
       "https://open.spotify.com/embed/track/43F29GECL2Z3Zot5UgGyoT?utm_source=generator",
       "https://open.spotify.com/embed/track/4x1fZr2njEJKHjlkIJKenB?utm_source=generator",
@@ -88,30 +88,38 @@ const PROJECTS = [
     <!-- Projects -->
     <div class="col-span-4 flex justify-center">
       <ul class="grid grid-cols-1 sm:grid-cols-6 gap-1 items-center">
-        {
-          PROJECTS.map(({ image, title, description, embeds, link }) => (
-            <li class="relative p-4 flex justify-center w-full h-full col-span-2">
-              <div class="ring-1 pt-4 ring-mutedTeal flex flex-col items-center gap-1 shadow-xl rounded-xl overflow-hidden hover:-translate-y-1 hover:shadow-2xl transition duration-500 ease-in-out min-h-full">
-                <img loading="lazy" alt="Project photo" class="object-cover w-44 h-44 sm:h-full hover:scale-105 rounded-md" src={image} />
-                <div class="p-4 w-full">
-                  <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">{title}</h3>
-                  <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
-                  <footer class="flex gap-4 mt-4">
-                    <button
-                      class="btn bg-richOrange text-white px-4 py-2 rounded"
-                      data-preview
-                      data-title={title}
-                      data-embeds={JSON.stringify(embeds)}
-                    >
-                      Preview
-                    </button>
-                    <LinkButton href={link}>View All</LinkButton>
-                  </footer>
-                </div>
-              </div>
-            </li>
-          ))
-        }
+   {
+  PROJECTS.map(({ image, title, description, embeds, link }) => (
+    <li class="relative p-4 flex justify-center w-full h-full col-span-2">
+      <div class="ring-1 pt-4 ring-mutedTeal flex flex-col items-center gap-1 shadow-xl rounded-xl overflow-hidden hover:-translate-y-1 hover:shadow-2xl transition duration-500 ease-in-out min-h-full">
+        <img
+          loading="lazy"
+          alt="Project photo"
+          class="object-cover w-44 h-44 sm:h-full hover:scale-105 rounded-md"
+          src={image}
+        />
+        <div class="p-4 w-full">
+          <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">{title}</h3>
+          <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
+
+          <footer class="flex gap-4 mt-4">
+            <button
+              class="btn bg-richOrange text-white px-4 py-2 rounded"
+              data-preview
+              data-title={title}
+              data-embeds={JSON.stringify(embeds)}
+            >
+              Preview
+            </button>
+
+            {link && <LinkButton href={link}>View All</LinkButton>}
+          </footer>
+        </div>
+      </div>
+    </li>
+  ))
+}
+
       </ul>
     </div>
   </div>
