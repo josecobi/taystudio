@@ -1,36 +1,181 @@
 ---
-import Layout from "../../layouts/Layout.astro"
+import Layout from "../../layouts/Layout.astro";
 import { getLangFromUrl } from '../../i18n/utils';
-import SectionContainer from "../../components/SectionContainer.astro";
-
 const lang = getLangFromUrl(Astro.url);
-
+const success = Astro.url.searchParams.get('success');
 ---
-<Layout  
-title = "About"
-description = "Learn more about Taylor's Studio" 
-language = {lang}>
-  <main class="mt-20">
-      <SectionContainer>
-        
-            <div class="mx-auto max-w-6xl px-6 pt-5 lg:px-8">
-                <h2 class="mt-2 text-4xl font-bold tracking-tight text-richOrange sm:text-5xl text-center">Get a quote</h2>
-                <p class="mt-6 text-lg leading-8 text-gray-600">Use the form below to provide us with some details about your project or specific needs. We'll get back to you with a personalized quote tailored to your requirements.</p>
-                
-                <!-- Form Embed Code -->
-                <div class="py-2 mt-6">
-                    <script defer>
-                        hbspt.forms.create({
-                            portalId: "",
-                            formId: "",
-                        });
-                    </script>
-                </div>
-                <!-- End Form Embed Code -->
 
-     
+<Layout
+  title="Get a Quote | Tay Music Studio"
+  description="Get a personalized quote for your music project. Contact us for composition, scoring, performing, producing, and audio design services."
+  language={lang}
+>
+  <main class="mt-20 bg-paperCream min-h-screen">
+    {success && (
+      <div class="mb-8 mx-auto max-w-7xl px-6 lg:px-8 pt-8">
+        <div class="bg-gradient-to-r from-mutedTeal to-deepTeal rounded-xl shadow-lg p-6 text-center border-4 border-warmBeige">
+          <svg class="w-16 h-16 text-white mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+          </svg>
+          <h3 class="text-2xl font-bold text-white mb-2">Thank You!</h3>
+          <p class="text-white text-lg">Your quote request has been submitted successfully. We'll get back to you within 24-48 hours.</p>
+        </div>
+      </div>
+    )}
+
+    <div class="relative isolate">
+    <div class="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
+      <div class="relative px-6 pb-10 pt-5 sm:pt-32 lg:static lg:px-8 lg:py-24">
+        <div class="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
+
+          <h2 class="text-3xl font-rye font-bold tracking-wide text-richOrange sm:text-4xl lg:text-5xl drop-shadow-sm">Get a quote</h2>
+          <p class="mt-6 text-lg leading-8 text-leatherBrown font-roboto">If you can't find exactly what you're looking for in our service packages, no worries! We're here to help. Use the form below to provide us with some details about your project or specific needs. We'll get back to you with a personalized quote tailored to your requirements.</p>
+          <dl class="mt-10 space-y-4 text-base leading-7 text-leatherBrown">
+            
+            <div class="flex gap-x-4">
+              <dt class="flex-none">
+                <span class="sr-only">Telephone</span>
+                <svg class="h-7 w-6 text-mutedTeal" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                </svg>
+              </dt>
+              <dd><a class="hover:text-deepTeal transition-colors duration-300" href="tel:+1 (443)-926-2333">+1 (443)-926-2333</a></dd>
+            </div>
+            <div class="flex gap-x-4">
+              <dt class="flex-none">
+                <span class="sr-only">Email</span>
+                <svg class="h-7 w-6 text-mutedTeal" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                </svg>
+              </dt>
+              <dd><a class="hover:text-deepTeal transition-colors duration-300" href="mailto:taylor.gomolisky@gmail.com">taylor.gomolisky@gmail.com</a></dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+      <form action="https://formsubmit.co/698caea89e94227602d55d4624a3029a" method="POST" class="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
+
+        <!-- FormSubmit Configuration -->
+        <input type="hidden" name="_subject" value="New Quote Request from Tay Music Studio">
+        <input type="hidden" name="_next" value={`${Astro.url.origin}/${lang}/GetQuote?success=true`}>
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="text" name="_honey" style="display:none">
+
+        <div class="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
+          <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+            <div>
+              <label for="first-name" class="block text-sm font-semibold leading-6 text-deepBrown">First name</label>
+              <div class="mt-2.5">
+                <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-2 border-warmBeige px-3.5 py-2 text-deepBrown shadow-sm focus:border-mutedTeal focus:ring-2 focus:ring-inset focus:ring-mutedTeal sm:text-sm sm:leading-6">
+              </div>
+            </div>
+            <div>
+              <label for="last-name" class="block text-sm font-semibold leading-6 text-deepBrown">Last name</label>
+              <div class="mt-2.5">
+                <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="block w-full rounded-md border-2 border-warmBeige px-3.5 py-2 text-deepBrown shadow-sm focus:border-mutedTeal focus:ring-2 focus:ring-inset focus:ring-mutedTeal sm:text-sm sm:leading-6">
+              </div>
+            </div>
+            <div class="sm:col-span-2">
+              <label for="email" class="block text-sm font-semibold leading-6 text-deepBrown">Email</label>
+              <div class="mt-2.5">
+                <input type="email" name="email" id="email" autocomplete="email" class="block w-full rounded-md border-2 border-warmBeige px-3.5 py-2 text-deepBrown shadow-sm focus:border-mutedTeal focus:ring-2 focus:ring-inset focus:ring-mutedTeal sm:text-sm sm:leading-6">
+              </div>
+            </div>
+            <div class="sm:col-span-2">
+              <label for="phone-number" class="block text-sm font-semibold leading-6 text-deepBrown">Phone number</label>
+              <div class="mt-2.5">
+                <input type="tel" name="phone-number" id="phone-number" autocomplete="tel" class="block w-full rounded-md border-2 border-warmBeige px-3.5 py-2 text-deepBrown shadow-sm focus:border-mutedTeal focus:ring-2 focus:ring-inset focus:ring-mutedTeal sm:text-sm sm:leading-6">
+              </div>
             </div>
 
-</SectionContainer>
-</main>
+            <div class="sm:col-span-2">
+              <label for="services-checkboxes" class="block text-sm font-semibold leading-6 text-deepBrown">Services</label>
+            <fieldset name="services-checkboxes">
+              <legend class="sr-only">Notifications</legend>
+              <div class="space-y-5">
+                <div class="relative flex items-start">
+                  <div class="flex h-6 items-center">
+                    <input id="design-checkbox" aria-describedby="design-checkbox-description" name="design-checkbox" type="checkbox" class="h-4 w-4 rounded border-warmBeige text-mutedTeal focus:ring-mutedTeal">
+                  </div>
+                  <div class="ml-3 text-sm leading-6">
+                    <label for="design-checkbox" class="font-medium text-deepBrown">Composition</label>
+                    <span id="design-checkbox-description" class="text-leatherBrown"><span class="sr-only">Composition </span>Original music creation</span>
+                  </div>
+                </div>
+                <div class="relative flex items-start">
+                  <div class="flex h-6 items-center">
+                    <input id="ux-ui" aria-describedby="ux-ui-description" name="ux-ui" type="checkbox" class="h-4 w-4 rounded border-warmBeige text-mutedTeal focus:ring-mutedTeal">
+                  </div>
+                  <div class="ml-3 text-sm leading-6">
+                    <label for="ux-ui" class="font-medium text-deepBrown">Scoring</label>
+                    <span id="ux-ui-description" class="text-leatherBrown"><span class="sr-only">Scoring </span>Cinematic and media scoring</span>
+                  </div>
+                </div>
+                <div class="relative flex items-start">
+                  <div class="flex h-6 items-center">
+                    <input id="branding" aria-describedby="branding-description" name="branding" type="checkbox" class="h-4 w-4 rounded border-warmBeige text-mutedTeal focus:ring-mutedTeal">
+                  </div>
+                  <div class="ml-3 text-sm leading-6">
+                    <label for="branding" class="font-medium text-deepBrown">Performing</label>
+                    <span id="branding-description" class="text-leatherBrown"><span class="sr-only">Performing </span>Live and session playing</span>
+                  </div>
+                </div>
+                <div class="relative flex items-start">
+                  <div class="flex h-6 items-center">
+                    <input id="ux-ui" aria-describedby="ux-ui-description" name="ux-ui" type="checkbox" class="h-4 w-4 rounded border-warmBeige text-mutedTeal focus:ring-mutedTeal">
+                  </div>
+
+                  <div class="ml-3 text-sm leading-6">
+                    <label for="seo" class="font-medium text-deepBrown">Producing</label>
+                    <span id="seo-description" class="text-leatherBrown"><span class="sr-only">Producing </span>Track development & direction</span>
+                  </div>
+                </div>
+                <div class="relative flex items-start">
+                  <div class="flex h-6 items-center">
+                    <input id="ux-ui" aria-describedby="ux-ui-description" name="ux-ui" type="checkbox" class="h-4 w-4 rounded border-warmBeige text-mutedTeal focus:ring-mutedTeal">
+                  </div>
+                  <div class="ml-3 text-sm leading-6">
+                    <label for="maintenance" class="font-medium text-deepBrown">Audio Design</label>
+                    <span id="maintenance-description" class="text-leatherBrown"><span class="sr-only">Audio Design </span>Custom sound crafting</span>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            </div>
+
+
+            <div class="sm:col-span-2">
+              <label for="budget" class="block text-sm font-semibold leading-6 text-deepBrown">What's your budget?</label>
+              <div class="mt-2.5">
+                <select name="budget" id="budget" autocomplete="budget" class="block w-full rounded-md border-2 border-warmBeige px-3.5 py-2 text-deepBrown shadow-sm focus:border-mutedTeal focus:ring-2 focus:ring-inset focus:ring-mutedTeal sm:text-sm sm:leading-6">
+                  <option value="">Select a budget range</option>
+                  <option value="$5000+">$5000+</option>
+                  <option value="$2000-$5000">$2000 - $5000</option>
+                  <option value="$1000-$2000">$1000 - $2000</option>
+                  <option value="$500-$1000">$500 - $1000</option>
+                  <option value="Under $500">Under $500</option>
+                </select>
+              </div>
+            </div>
+            <div class="sm:col-span-2">
+              <label for="message" class="block text-sm font-semibold leading-6 text-deepBrown">Message</label>
+              <div class="mt-2.5">
+                <textarea name="message" id="message" rows="4" class="block w-full rounded-md border-2 border-warmBeige px-3.5 py-2 text-deepBrown shadow-sm focus:border-mutedTeal focus:ring-2 focus:ring-inset focus:ring-mutedTeal sm:text-sm sm:leading-6"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="mt-8 flex justify-center">
+            <button type="submit" class="bg-richOrange hover:bg-burntOrange text-white font-bold px-8 py-4 rounded-full transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 uppercase tracking-wide text-lg border-3 border-deepBrown hover:border-mutedTeal">
+              Send Quote Request
+            </button>
+          </div>
+          <p class="mt-6 text-center text-sm text-leatherBrown">
+            We'll get back to you within 24-48 hours with a personalized quote.
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+  </main>
 </Layout>

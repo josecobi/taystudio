@@ -1,6 +1,5 @@
 ---
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'free-astro-components'
-import LinkButton from "../../components/LinkButton.astro"
 import ActionBtn from '../../components/ActionBtn.astro'
 import { getLangFromUrl } from '../../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
@@ -97,15 +96,27 @@ const PROJECTS = [
                   <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">{title}</h3>
                   <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
                   <footer class="flex gap-4 mt-4">
-                    <button
-                      class="btn bg-richOrange text-white px-4 py-2 rounded"
-                      data-preview
-                      data-title={title}
-                      data-embeds={JSON.stringify(embeds)}
-                    >
-                      Preview
-                    </button>
-                    <LinkButton href={link}>View All</LinkButton>
+                    {title !== "Audio Design" && (
+                      <button
+                        class="inline-flex items-center justify-center gap-2 px-4 py-2 text-white bg-deepTeal hover:bg-mutedTeal transition-all duration-300 rounded font-semibold"
+                        data-preview
+                        data-title={title}
+                        data-embeds={JSON.stringify(embeds)}
+                      >
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                        </svg>
+                        Preview
+                      </button>
+                    )}
+                    {link && title === "Audio Design" && (
+                      <a href={link} class="inline-flex items-center justify-center gap-2 px-4 py-2 text-white bg-deepTeal hover:bg-mutedTeal transition-all duration-300 rounded font-semibold">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M8 5v14l11-7z"/>
+                        </svg>
+                        Listen & Explore
+                      </a>
+                    )}
                   </footer>
                 </div>
               </div>
