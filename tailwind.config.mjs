@@ -29,7 +29,14 @@ export default {
 				boldRed: '#9B2226',  // Strongest accents, alerts
 				cream: '#f8f9fa',
 				accent: '#ff6b35',
-				mutedGray: '#ebedef'
+				mutedGray: '#ebedef',
+
+				// Western vintage palette
+				deepBrown: '#2C1810',  // Dark warm brown for backgrounds
+				leatherBrown: '#5D4037',  // Leather texture backgrounds
+				vintageBeige: '#D7CCC8',  // Light vintage backgrounds
+				paperCream: '#FFF8E1',  // Warm paper texture
+				warmCharcoal: '#1a1614'  // Very dark warm charcoal for navbar
 
 			  },
 			boxShadow: {
@@ -38,6 +45,7 @@ export default {
 		  fontFamily: {
 			roboto: ['Roboto Slab', 'serif'],
 			smokum: ['Smokum', 'cursive'],
+			rye: ['Rye', 'cursive'],
 		  },
 		},
 		
